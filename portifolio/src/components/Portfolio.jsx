@@ -1,0 +1,32 @@
+import { portfolioData } from '../data/portfolioData';
+import './Portfolio.css';
+
+const Portfolio = () => {
+  return (
+    <section className="section dark" id="portfolio">
+      <div className="container">
+        <h2 className="section-title">Projetos Recentes</h2>
+        <div className="portfolio-container">
+          {portfolioData.map(project => (
+            <div className="project-card" key={project.id}>
+              <div className="project-image">
+                <i className={project.icon}></i>
+              </div>
+              <div className="project-info">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="project-tags">
+                  {project.tags.map((tag, index) => (
+                    <span className="project-tag" key={index}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Portfolio;

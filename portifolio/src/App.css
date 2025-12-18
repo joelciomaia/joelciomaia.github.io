@@ -1,0 +1,175 @@
+/* Reset e configurações gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  /* PALETA CLARA (default) */
+  --primary: #2E8B57;
+  --primary-dark: #1f6b3f;
+  --primary-light: rgba(46, 139, 87, 0.1);
+  --secondary: #00c2a2;
+  --dark: #01010e;
+  --light: #f8f9fa;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  
+  /* Cores de fundo e texto (modo claro) */
+  --bg-color: #f8f9fa;          /* FUNDO GERAL claro */
+  --text-color: #333;           /* TEXTO claro */
+  --card-bg: white;             /* CARDS claro */
+  --header-bg: white;           /* HEADER claro */
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Modo escuro */
+[data-theme="dark"] {
+  --bg-color: #121212;          /* FUNDO GERAL escuro (PRETO) */
+  --text-color: #ffffff;        /* TEXTO escuro */
+  --card-bg: #01010e;           /* CARDS escuro tl
+  --header-bg: #1e1e2e;         /* HEADER escuro */
+  --header-bg: #01010e;         /* HEADER escuro */
+  
+  --border-color: rgba(61, 255, 3, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --light-gray: #092006;        /* CINZA escuro */
+  --gray: #d6ddd8;              /* CINZA texto escuro */
+  --dark: #121212;              /* Para sections .dark */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container geral para conteúdo */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Botões */
+.btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(46, 139, 87, 0.2);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-3px);
+}
+
+.btn-whatsapp {
+  background-color: #25d366;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #128c7e;
+}
+
+/* Seções */
+.section {
+  padding: 5rem 0;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s;
+}
+
+.section.dark {
+  background-color: var(--dark);  /* #2e2d3d no modo escuro */
+  color: white;
+  margin: 3rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  color: var(--text-color);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary);
+}
+
+.dark .section-title::after {
+  background-color: var(--secondary);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+}
