@@ -11,7 +11,7 @@ const Hero = () => {
         
         {/* SEU CARGO */}
         <p className="hero-subtitle">
-           DevOps • Administrador de Redes • Professor de Ciência da Computação
+           DevOps • Administrador de Redes • Professor de Técnologia da Informação
         </p>
         
         {/* DESCRIÇÃO GENÉRICA (você ajusta depois) */}

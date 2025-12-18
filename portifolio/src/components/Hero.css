@@ -125,3 +125,30 @@
     font-size: 1.1rem;
   }
 }
+
+
+/* GARANTE QUE O VIDRO FIQUE ACIMA DO CONTEÚDO */
+#root, .App {
+  position: relative;
+  z-index: 0;
+}
+
+/* Se HERO (ou qualquer section) estiver criando camada acima */
+.hero, .section, main {
+  position: relative;
+  z-index: 0;
+}
+
+/* VIDRO SEMPRE ACIMA DO CONTEÚDO */
+.menu-backdrop {
+  z-index: 2000 !important;
+}
+
+/* MENU E HEADER ACIMA DO VIDRO */
+.header {
+  z-index: 2100 !important;
+}
+
+.nav-links {
+  z-index: 2200 !important;
+}

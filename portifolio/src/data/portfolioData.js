@@ -2,84 +2,98 @@
 export const skillsData = [
   {
     id: 1,
-    title: "Fullstack Developer",
-    description: "Desenvolvimento de aplicações web completas, do frontend ao backend.",
-    tags: ["Javascript", "React JS", "NodeJS", "HTML/CSS", "Python", "Django"]
+    title: "Docência em Tecnologia da Informação",
+    description: "Docência em cursos técnicos, com foco em formação prática nas áreas de desenvolvimento, sistemas, redes e infraestrutura.",
+    tags: ["Lógica", "Programação", "Web", "Mobile", "Arquitetura", "Redes", "Banco de Dados", "Hardware"]
   },
   {
     id: 2,
-    title: "UX/UI Designer",
-    description: "Criação de designs centrados no usuário para Web e Apps. Certificação Google UX Design.",
-    tags: ["Figma", "Adobe XD", "Prototipagem", "User Research", "UI Design"]
+    title: "Desenvolvimento de Aplicações",
+    description: "Desenvolvimento de aplicações web e mobile, abrangendo front-end, back-end e integração com bancos de dados.",
+    tags: ["Web", "Mobile", "Frontend", "Backend", "APIs", "Banco de Dados"]
   },
   {
     id: 3,
-    title: "Propriedade Intelectual",
-    description: "Mestre em Inovação e PL. Atuação com marcas, patentes, software e direitos autorais.",
-    tags: ["Marcas", "Patentes", "Direitos Autorais", "Registro de Software", "Consultoria"]
+    title: "Desenvolvimento Web",
+    description: "Criação de interfaces e aplicações web responsivas, com foco em organização de código, usabilidade e manutenção.",
+    tags: ["HTML", "CSS", "JavaScript", "Frameworks", "Responsividade", "Usabilidade"]
   },
   {
     id: 4,
-    title: "Modelagem de Processos",
-    description: "Criação de modelos com BPMN para otimização de processos. Yellow Belt Lean Six Sigma.",
-    tags: ["BPMN", "Otimização", "Lean Six Sigma", "Mapeamento de Processos"]
+    title: "Versionamento & Colaboração",
+    description: "Uso de controle de versão para organização de projetos, colaboração em equipe e gerenciamento de código-fonte.",
+    tags: ["Git", "GitHub", "Versionamento", "Branches", "Pull Requests"]
   },
   {
     id: 5,
-    title: "Comunicação & Pensamento Crítico",
-    description: "Habilidades avançadas em comunicação escrita e pensamento lógico para solução de problemas.",
-    tags: ["Redação", "Argumentação", "Análise Crítica", "Resolução de Problemas"]
+    title: "Projetos Sociais & Tecnologia Educacional",
+    description: "Participação e desenvolvimento de iniciativas tecnológicas voltadas à melhoria da infraestrutura educacional e inclusão digital.",
+    tags: ["Educação", "Tecnologia", "Inclusão Digital", "Infraestrutura", "Projetos Sociais"]
   },
   {
     id: 6,
-    title: "Jurídico & Compliance",
-    description: "Advogado com experiência em peças jurídicas, consultoria, pareceres e compliance.",
-    tags: ["Direito Digital", "Contratos", "LGPD", "Compliance", "Consultoria Jurídica"]
+    title: "Análise de Sistemas & Suporte ao Usuário",
+    description: "Atuação com suporte técnico, resolução de incidentes, gestão de tickets e apoio à evolução de sistemas e processos.",
+    tags: ["Suporte", "Help Desk", "Incidentes", "Tickets", "Sistemas", "Atendimento"]
+  },
+ {
+  id: 7,
+  title: "Redes Corporativas",
+  description: "Gestão de redes corporativas e serviços de conectividade, garantindo comunicação, disponibilidade e suporte aos ambientes de TI.",
+  tags: ["Redes", "TCP/IP", "DNS", "DHCP", "Monitoramento", "Suporte"]
+},
+{
+  id: 8,
+  title: "Infraestrutura & Servidores",
+  description: "Administração de infraestrutura e servidores com foco em disponibilidade, controle de acesso, serviços corporativos e continuidade operacional.",
+  tags: ["Infraestrutura", "Windows Server", "Active Directory", "GPO", "Permissões", "Controle de Acesso", "Firewall", "PfSense", "Antivírus"]
+},
+
+  {
+    id: 10,
+    title: "Backup & Continuidade",
+    description: "Rotinas de backup, restauração e continuidade de serviços, garantindo integridade e recuperação de dados.",
+    tags: ["Backup", "Restauração", "Veeam", "Continuidade", "Recuperação"]
   }
 ];
 
 // Dados do portfólio
 export const portfolioData = [
   {
-    id: 1,
-    title: "A PALAVRA",
-    description: "Plataforma digital para estudo e reflexão textual. Desenvolvimento fullstack com Django e React.",
-    tags: ["Django", "React", "PostgreSQL", "Design System"],
-    icon: "fas fa-book"
-  },
-  {
-    id: 2,
-    title: "ImGoodNow",
-    description: "Aplicativo para bem-estar e saúde mental com UX focado na experiência do usuário.",
-    tags: ["UX Design", "React Native", "Node.js", "App Development"],
-    icon: "fas fa-heart"
-  },
-  {
-    id: 3,
-    title: "ABCGONTSLINE",
-    description: "Sistema de gestão tipográfica para designers. Case: Ab. Kitsune.",
-    tags: ["Vue.js", "Python", "UI Design", "SaaS"],
-    icon: "fas fa-font"
-  },
-  {
-    id: 4,
-    title: "NuPonto Restaurantes",
-    description: "Sistema de gestão para restaurantes com foco em experiência do usuário e eficiência.",
-    tags: ["UX/UI", "Web App", "Process Automation", "BPMN"],
-    icon: "fas fa-utensils"
-  },
-  {
-    id: 5,
-    title: "Portfolio & Blog Pessoal",
-    description: "Desenvolvimento deste site portfólio com blog integrado para compartilhar conhecimentos.",
-    tags: ["HTML/CSS", "JavaScript", "Responsive Design", "SEO"],
-    icon: "fas fa-laptop-code"
-  },
-  {
-    id: 6,
-    title: "CASTOSadv.com",
-    description: "Site institucional para escritório de advocacia com foco em propriedade intelectual.",
-    tags: ["Web Design", "Direito Digital", "Consultoria", "Branding"],
-    icon: "fas fa-balance-scale"
-  }
+  id: 2,
+  title: "OvinoSync",
+  description: "Aplicativo mobile para gestão de rebanhos ovinos, permitindo o acompanhamento completo do histórico de vida e sanitário dos animais, auxiliando no manejo e na organização das informações no campo.",
+  tags: [
+    "Aplicativo Mobile",
+    "Gestão Rural",
+    "Sistemas de Informação",
+    "Histórico Sanitário",
+    "Angular",
+    "Ionic",
+    "Node.js",
+    "MySQL"
+  ],
+  icon: "fas fa-sheep",
+  image: "/images/projects/ovinosync.png"
+},
+{
+  id: 3,
+  title: "Portfólio Profissional",
+  description: "Aplicação web desenvolvida para apresentação da trajetória profissional, competências técnicas e projetos, com foco em organização da informação, identidade visual, responsividade e experiência do usuário.",
+  tags: [
+    "Desenvolvimento Web",
+    "Frontend",
+    "React",
+    "Vite",
+    "CSS",
+    "Responsividade",
+    "UI",
+    "Git",
+    "GitHub"
+  ],
+  icon: "fas fa-code",
+  //image: "/images/projects/portfolio.png"
+}
+
+  
 ];
