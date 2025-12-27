@@ -19,12 +19,10 @@ const Contact = () => {
             <p>Será um grande prazer discutir ideias, projetos ou oportunidades.</p>
             <div className="contact-details">
               <p><i className="fas fa-envelope"></i> joelcio.maia@sed.sc.gov.br</p>
-              <p><i className="fas fa-phone"></i> +55 46 98831-6279</p>
+              
               <p><i className="fas fa-map-marker-alt"></i> Abelardo Luz, Brasil</p>
             </div>
-            <a href="https://wa.me/5546988316279" className="btn btn-whatsapp">
-              <i className="fab fa-whatsapp"></i> Mandar mensagem via WhatsApp
-            </a>
+            
           </div>
           <form className="contact-form" onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="Seu nome" required />

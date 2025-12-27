@@ -94,18 +94,37 @@
   position: relative;
   width: 100%;
   min-height: 100px;
+
+  /* progresso (0 -> 1) vem do style no React */
+  --line-progress: 0;
 }
 
+/* linha "base" (fundo) */
 .timeline-line {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 3px;
   height: calc(100% - 40px);
-  background: linear-gradient(to bottom, var(--primary) 0%, #4dabf7 100%);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 2px;
   z-index: 1;
   top: 20px;
+  overflow: hidden;
+}
+
+/* preenchimento que cresce conforme scroll */
+.timeline-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary) 0%, #4dabf7 100%);
+  transform-origin: top;
+  transform: scaleY(var(--line-progress));
+  transition: transform 0.12s linear;
 }
 
 /* ========== ITENS DA TIMELINE ========== */
@@ -329,27 +348,27 @@
     text-align: left !important;
     margin-bottom: 2.2rem;
   }
-  
+
   .timeline-line {
     left: 30px;
     height: calc(100% - 30px);
     top: 15px;
   }
-  
+
   .timeline-dot {
     left: -9px !important;
     right: auto !important;
   }
-  
+
   .card-type {
     left: 15px !important;
     right: auto !important;
   }
-  
+
   .timeline-item {
     transform: translateY(80px) !important;
   }
-  
+
   .timeline-item.visible {
     transform: translateY(0) !important;
   }
@@ -361,29 +380,29 @@
     gap: 0.9rem;
     align-items: center;
   }
-  
+
   .timeline-filters {
     padding: 1.2rem;
   }
-  
+
   .timeline-item {
     padding-left: 50px !important;
   }
-  
+
   .timeline-line {
     left: 25px;
   }
-  
+
   .timeline-dot {
     left: -7px !important;
     width: 16px;
     height: 16px;
   }
-  
+
   .timeline-card {
     padding: 1.5rem;
   }
-  
+
   .card-title {
     font-size: 1.2rem;
   }
@@ -393,19 +412,19 @@
   .timeline-filters {
     padding: 1rem;
   }
-  
+
   .filter-instruction {
     font-size: 0.95rem;
   }
-  
+
   .timeline-card {
     padding: 1.3rem;
   }
-  
+
   .card-tags {
     gap: 0.3rem;
   }
-  
+
   .professional-tag,
   .academic-tag {
     font-size: 0.75rem;

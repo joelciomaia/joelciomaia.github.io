@@ -11,6 +11,10 @@ const Timeline = () => {
   const itemRefs = useRef([]);
   const sectionRef = useRef(null);
 
+  // ✅ progresso da linha (0 -> 1)
+  const timelineRef = useRef(null);
+  const [lineProgress, setLineProgress] = useState(0);
+
   const timelineData = [
     {
       id: 1,
@@ -52,7 +56,6 @@ const Timeline = () => {
       tags: ["Laboratório", "Suporte", "Gestão"],
       shortYear: 2015
     },
-    
     {
       id: 6,
       type: 'professional',
@@ -62,7 +65,8 @@ const Timeline = () => {
       description: "Administração de redes, segurança da informação, gestão de servidores, firewalls, antivírus, virtualização, backup.",
       tags: ["Redes", "Segurança", "VMware", "PfSense", "Veeam", "Sophos"],
       shortYear: 2019
-    },{
+    },
+    {
       id: 5,
       type: 'professional',
       year: "2019",
@@ -124,7 +128,7 @@ const Timeline = () => {
     }
   ];
 
-  // Observer para animação ao scrollar
+  // ✅ Observer para animação ao scrollar (cards)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -155,6 +159,37 @@ const Timeline = () => {
       itemRefs.current.forEach(ref => {
         if (ref) observer.unobserve(ref);
       });
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
+  // ✅ Progresso da linha conforme scroll (preenchimento)
+  useEffect(() => {
+    const update = () => {
+      const el = timelineRef.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+
+      // começa quando topo entra ~80% da tela, termina quando base passa ~20%
+      const start = vh * 0.8;
+      const end = vh * 0.2;
+
+      const total = rect.height + (start - end);
+      const passed = start - rect.top;
+
+      const p = Math.min(1, Math.max(0, passed / total));
+      setLineProgress(p);
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
     };
   }, []);
 
@@ -162,6 +197,21 @@ const Timeline = () => {
   const filteredData = timelineData
     .filter(item => filters[item.type])
     .sort((a, b) => b.shortYear - a.shortYear);
+
+  // ✅ reseta a linha quando muda filtro (pra não ficar “meio cheio” incoerente)
+  useEffect(() => {
+    setLineProgress(0);
+    // força recalcular no próximo frame
+    requestAnimationFrame(() => {
+      const el = timelineRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.height > 0) {
+        // dispara o effect de scroll “na marra”
+        window.dispatchEvent(new Event('scroll'));
+      }
+    });
+  }, [filters]);
 
   const handleCheckboxChange = (type) => {
     setFilters(prev => ({ ...prev, [type]: !prev[type] }));
@@ -171,16 +221,16 @@ const Timeline = () => {
     <section className="section" id="timeline" ref={sectionRef}>
       <div className="container">
         <h2 className="section-title">EXPERIÊNCIA</h2>
-        
+
         <div className="timeline-filters">
           <p className="filter-instruction">
             Selecione pelo menos um tipo de experiência para conhecer minha trajetória
           </p>
-          
+
           <div className="checkbox-group">
             <label className="checkbox-label">
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 checked={filters.professional}
                 onChange={() => handleCheckboxChange('professional')}
                 className="checkbox-input"
@@ -188,10 +238,10 @@ const Timeline = () => {
               <span className="checkbox-custom"></span>
               <span className="checkbox-text">Profissional</span>
             </label>
-            
+
             <label className="checkbox-label">
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 checked={filters.academic}
                 onChange={() => handleCheckboxChange('academic')}
                 className="checkbox-input"
@@ -209,9 +259,13 @@ const Timeline = () => {
           </div>
         ) : (
           <div className="timeline-wrapper">
-            <div className="timeline">
+            <div
+              className="timeline"
+              ref={timelineRef}
+              style={{ '--line-progress': lineProgress }}
+            >
               <div className="timeline-line"></div>
-              
+
               {filteredData.map((item, index) => {
                 const isLeft = index % 2 === 0;
                 const sideClass = isLeft ? 'left' : 'right';
@@ -230,12 +284,13 @@ const Timeline = () => {
                     style={{ '--item-index': index }}
                   >
                     <div className="timeline-dot"></div>
-                    
+
                     <div className="timeline-card">
                       <div className="card-year">{item.year}</div>
                       <h3 className="card-title">{item.title}</h3>
                       <p className="card-company">{item.company}</p>
                       <p className="card-description">{item.description}</p>
+
                       <div className="card-tags">
                         {item.tags.map((tag, tagIndex) => (
                           <span key={tagIndex} className={`tag ${item.type}-tag`}>
@@ -243,6 +298,7 @@ const Timeline = () => {
                           </span>
                         ))}
                       </div>
+
                       <div className="card-type">
                         {item.type === 'professional' ? 'Profissional' : 'Acadêmico'}
                       </div>
