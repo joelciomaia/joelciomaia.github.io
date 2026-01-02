@@ -49,12 +49,31 @@ const Hero = () => {
 
       {/* PLACEHOLDER ANIMADO (você mantém por enquanto) */}
       <div className="hero-image">
-        <div className="image-placeholder">
-          <i className="fas fa-user-tie"></i>
-        </div>
+  <div className="image-placeholder">
+    <i><img
+      src="/images/projects/emoji-animado3.gif"
+      alt="Animação"
+      className="hero-gif"
+    ></img>
+    </i>
       </div>
+</div>
+
+
     </section>
   );
 };
+
+
+<div className="hero-image">
+  <div className="image-placeholder">
+    <img
+      src="public\images\projects\emoji-animado.gif"
+      alt="Animação"
+      className="hero-gif"
+    />
+  </div>
+</div>
+
 
 export default Hero;
