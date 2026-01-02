@@ -65,15 +65,4 @@ const Hero = () => {
 };
 
 
-<div className="hero-image">
-  <div className="image-placeholder">
-    <img
-      src="public\images\projects\emoji-animado.gif"
-      alt="Animação"
-      className="hero-gif"
-    />
-  </div>
-</div>
-
-
 export default Hero;
