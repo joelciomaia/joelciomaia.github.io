@@ -47,17 +47,16 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* PLACEHOLDER ANIMADO (você mantém por enquanto) */}
+      {/* PLACEHOLDER ANIMADO */}
       <div className="hero-image">
-  <div className="image-placeholder">
-    <i><img
-      src="/images/projects/emoji-animado3.gif"
-      alt="Animação"
-      className="hero-gif"
-    ></img>
-    </i>
+        <div className="image-placeholder">
+          <img
+            src="/images/projects/emoji-animado3.gif"
+            alt="Animação"
+            className="hero-gif"
+          />
+        </div>
       </div>
-</div>
 
 
     </section>
