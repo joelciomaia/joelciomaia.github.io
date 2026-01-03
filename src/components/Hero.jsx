@@ -51,7 +51,7 @@ const Hero = () => {
       <div className="hero-image">
         <div className="image-placeholder">
           <img
-            src="/images/emoji-animado3.gif"
+            src="https://raw.githubusercontent.com/joelciomaia/joelciomaia.github.io/main/public/images/emoji-animado3.gif"
             alt="Animação"
             className="hero-gif"
           />
