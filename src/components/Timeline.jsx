@@ -9,11 +9,9 @@ const Timeline = () => {
 
   const [visibleItems, setVisibleItems] = useState({});
   const itemRefs = useRef([]);
-  const sectionRef = useRef(null);
 
-  // ✅ progresso da linha (0 -> 1)
   const timelineRef = useRef(null);
-  const [lineProgress, setLineProgress] = useState(0);
+  const [lineAnimated, setLineAnimated] = useState(false);
 
   const timelineData = [
     {
@@ -42,7 +40,7 @@ const Timeline = () => {
       year: "2014 - 2015",
       title: "Cinegrafista e Editor",
       company: "EG Produtora",
-      description: "Produção audiovisual, captação de imagens, edição  e tratamento de imagem.",
+      description: "Produção audiovisual, captação de imagens, edição e tratamento de imagem.",
       tags: ["Edição", "Photoshop", "Sony Vegas"],
       shortYear: 2014
     },
@@ -56,26 +54,29 @@ const Timeline = () => {
       tags: ["Laboratório", "Suporte", "Gestão"],
       shortYear: 2015
     },
+
     {
-      id: 6,
+      id: 5,
       type: 'professional',
       year: "2019 - 2022",
       title: "Administrador de Redes",
       company: "Associação Senhor Bom Jesus da Coluna",
-      description: "Administração de redes, segurança da informação, gestão de servidores, firewalls, antivírus, virtualização, backup.",
+      description: "Administração de redes, segurança da informação, gestão de servidores, firewalls, antivírus, virtualização e backup.",
       tags: ["Redes", "Segurança", "VMware", "PfSense", "Veeam", "Sophos"],
       shortYear: 2019
     },
+
     {
-      id: 5,
+      id: 6,
       type: 'professional',
       year: "2019",
-      title: "Estagiário admistrativo",
+      title: "Estagiário administrativo",
       company: "Instituto Federal de Educação, Ciência e Tecnologia do Paraná",
-      description: "Estagio na área administrativa, apoio em gerenciamento de contratos",
+      description: "Estágio na área administrativa, com apoio em gerenciamento de contratos.",
       tags: ["Estágio", "IFPR", "Administrativo", "Gestão"],
       shortYear: 2019
     },
+    
     {
       id: 7,
       type: 'professional',
@@ -90,9 +91,9 @@ const Timeline = () => {
       id: 8,
       type: 'professional',
       year: "2023",
-      title: "Professor de Ensino Técnico",
+      title: "Professor de Ensino Técnico e Laboratoriista de Informática",
       company: "Secretaria de Estado de Educação de SC",
-      description: "Docência em cursos técnicos integrados ao ensino médio, desenvolvimento de materiais didáticos, orientação pedagógica.",
+      description: "Docência em cursos técnicos integrados ao ensino médio, desenvolvimento de materiais didáticos e orientação pedagógica.",
       tags: ["Docência", "Ensino Técnico", "Educação"],
       shortYear: 2023
     },
@@ -102,7 +103,7 @@ const Timeline = () => {
       year: "2024",
       title: "Professor e Orientador de Curso",
       company: "Secretaria de Estado de Educação de SC",
-      description: "Docência + orientação de cursos técnicos, coordenação pedagógica, desenvolvimento de projetos educacionais.",
+      description: "Docência e orientação de cursos técnicos, coordenação pedagógica e desenvolvimento de projetos educacionais.",
       tags: ["Docência", "Orientação", "Coordenação"],
       shortYear: 2024
     },
@@ -110,9 +111,9 @@ const Timeline = () => {
       id: 10,
       type: 'professional',
       year: "2025",
-      title: "Professor",
+      title: "Professor de Ensino Técnico",
       company: "Secretaria de Estado de Educação de SC",
-      description: "Docência em tempo integral, foco em metodologias ativas e integração tecnologia-educação.",
+      description: "Docência em tempo integral, com foco em metodologias ativas e integração entre tecnologia e educação.",
       tags: ["Docência", "Educação", "Tecnologia"],
       shortYear: 2025
     },
@@ -120,15 +121,15 @@ const Timeline = () => {
       id: 11,
       type: 'academic',
       year: "2025",
-      title: "Conclusão da Graduação em Sistemas de Informação",
-      company: "Faculdade de SistemasInstituto Federal de Educação, Ciência e Tecnologia do Paraná",
-      description: "Conclusão da formação em Sistemas de Informação/Computação após trajetória de aprendizado contínuo.",
+      title: "Graduação em Sistemas de Informação",
+      company: "Instituto Federal de Educação, Ciência e Tecnologia do Paraná",
+      description: "Conclusão da formação em Sistemas de Informação após trajetória de aprendizado contínuo.",
       tags: ["Graduação", "Formação", "Sistemas de Informação"],
       shortYear: 2025
     }
   ];
 
-  // ✅ Observer para animação ao scrollar (cards)
+  // ✅ cards: aparecem quando entram na tela
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -141,84 +142,53 @@ const Timeline = () => {
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
 
     itemRefs.current.forEach(ref => {
       if (ref) observer.observe(ref);
     });
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
     return () => {
       itemRefs.current.forEach(ref => {
         if (ref) observer.unobserve(ref);
       });
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
 
-  // ✅ Progresso da linha conforme scroll (preenchimento)
+  // ✅ linha: cresce devagar uma vez quando a timeline entra na tela
   useEffect(() => {
-    const update = () => {
-      const el = timelineRef.current;
-      if (!el) return;
+    setLineAnimated(false);
 
-      const rect = el.getBoundingClientRect();
-      const vh = window.innerHeight;
+    const el = timelineRef.current;
+    if (!el) return;
 
-      // começa quando topo entra ~80% da tela, termina quando base passa ~20%
-      const start = vh * 0.8;
-      const end = vh * 0.2;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setLineAnimated(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
 
-      const total = rect.height + (start - end);
-      const passed = start - rect.top;
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [filters]);
 
-      const p = Math.min(1, Math.max(0, passed / total));
-      setLineProgress(p);
-    };
-
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-
-    return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
-    };
-  }, []);
-
-  // Filtrar e ordenar
   const filteredData = timelineData
     .filter(item => filters[item.type])
     .sort((a, b) => b.shortYear - a.shortYear);
-
-  // ✅ reseta a linha quando muda filtro (pra não ficar “meio cheio” incoerente)
-  useEffect(() => {
-    setLineProgress(0);
-    // força recalcular no próximo frame
-    requestAnimationFrame(() => {
-      const el = timelineRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      if (rect.height > 0) {
-        // dispara o effect de scroll “na marra”
-        window.dispatchEvent(new Event('scroll'));
-      }
-    });
-  }, [filters]);
 
   const handleCheckboxChange = (type) => {
     setFilters(prev => ({ ...prev, [type]: !prev[type] }));
   };
 
   return (
-    <section className="section" id="timeline" ref={sectionRef}>
+    <section className="section" id="timeline">
       <div className="container">
         <h2 className="section-title">EXPERIÊNCIA</h2>
 
@@ -260,9 +230,8 @@ const Timeline = () => {
         ) : (
           <div className="timeline-wrapper">
             <div
-              className="timeline"
+              className={`timeline ${lineAnimated ? 'animate-line' : ''}`}
               ref={timelineRef}
-              style={{ '--line-progress': lineProgress }}
             >
               <div className="timeline-line"></div>
 

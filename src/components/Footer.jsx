@@ -1,11 +1,13 @@
 import './Footer.css';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="footer">
       <div className="container">
-        <p>© 2025 Joelcio J. Maia. - Todos os direitos reservados.</p>
-        <p>Infraestutura e Redes • Tecnologia da Informação • Analise e Desenvolvimento de Sistemas</p>
+        <p>© {currentYear} Joelcio J. Maia. - Todos os direitos reservados.</p>
+        <p>Infraestrutura e Redes • Tecnologia da Informação • Análise e Desenvolvimento de Sistemas</p>
       </div>
     </footer>
   );

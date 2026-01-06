@@ -14,12 +14,13 @@ const Hero = () => {
 
         <TypingLoop className="hero-subtitle" />
 
-        {/* DESCRIÇÃO GENÉRICA (você ajusta depois) */}
+        {/* DESCRIÇÃO GENÉRICA */}
         <p className="hero-desc">
-          Com formação em <strong>Sistemas de Informação</strong> e experiência em
-          <strong> infraestrutura de TI</strong>, busco unir conhecimento técnico,
-          docência e desenvolvimento para criar soluções inovadoras.
+          Com formação em <strong>Sistemas de Informação</strong> e sólida experiência em
+          <strong> infraestrutura de TI</strong>, atuo entre a docência e o desenvolvimento
+          de software, transformando conhecimento técnico em soluções aplicáveis.
         </p>
+
 
         {/* BOTÕES */}
         <div className="hero-buttons">
@@ -51,12 +52,14 @@ const Hero = () => {
       <div className="hero-image">
         <div className="image-placeholder">
           <img
-            src="/images/emoji-animado3.png"
+            src={`${import.meta.env.BASE_URL}images/emoji-animado3.gif`}
             alt="Animação"
             className="hero-gif"
           />
+
         </div>
       </div>
+
 
 
     </section>
