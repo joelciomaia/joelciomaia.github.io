@@ -26,6 +26,15 @@ const Hero = () => {
         <div className="hero-buttons">
           <a href="#timeline" className="btn btn-primary">Minha Jornada</a>
           <a href="#portfolio" className="btn btn-secondary">Meus Projetos</a>
+          <a
+            href="https://drive.google.com/file/d/1PfNld1-61sEBuGpLJSHRlQlTyh99jHBg/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+          >
+            Ver currículo (PDF)
+          </a>
+
         </div>
 
         {/* REDES SOCIAIS COM SEUS LINKS */}
@@ -44,6 +53,7 @@ const Hero = () => {
           >
             <i className="fab fa-github"></i>
           </a>
+
 
         </div>
       </div>
