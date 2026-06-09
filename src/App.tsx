@@ -957,7 +957,12 @@ function App() {
   return (
       <div className="portfolio-shell relative isolate min-h-screen bg-[#070a12] text-white selection:bg-cyan-400 selection:text-zinc-950">
       <div className="portfolio-bg-gradient fixed inset-0 z-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_32rem),radial-gradient(circle_at_top_right,rgba(16,185,129,0.12),transparent_34rem),linear-gradient(180deg,#070a12_0%,#09090b_55%,#050507_100%)]"></div>
-      <div className="portfolio-bg-lines absolute inset-x-0 bottom-0 top-[92vh] z-0 overflow-hidden" aria-hidden="true">
+      <div className="portfolio-bg-illumination fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div className="portfolio-bg-lines fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
         <span></span>
         <span></span>
         <span></span>
