@@ -34,7 +34,7 @@ const marqueeItems: Record<MarqueeVariant, MarqueeItem[]> = {
   ],
 };
 
-const repetitions = Array.from({ length: 8 }, (_, index) => index);
+const repetitions = Array.from({ length: 4 }, (_, index) => index);
 
 function MarqueeGroup({ items }: { items: MarqueeItem[] }) {
   return (
@@ -68,7 +68,7 @@ export default function TechMarquee({ variant = 'development', reverse = false }
               transform: translate3d(0, 0, 0);
             }
             to {
-              transform: translate3d(-12.5%, 0, 0);
+              transform: translate3d(-25%, 0, 0);
             }
           }
 
@@ -169,6 +169,34 @@ export default function TechMarquee({ variant = 'development', reverse = false }
             .tech-marquee-track {
               animation: none;
               transform: translate3d(0, 0, 0);
+            }
+          }
+
+          @media (max-width: 767px) {
+            .tech-marquee-divider {
+              animation: none;
+              background-position: 50% 50%, 0 0;
+              padding-block: 0.68rem;
+            }
+
+            .tech-marquee-track {
+              animation-duration: 92s;
+            }
+
+            .tech-marquee-track-reverse {
+              animation-duration: 104s;
+            }
+
+            .tech-marquee-group {
+              gap: 0.45rem;
+              padding-right: 0.45rem;
+            }
+
+            .tech-marquee-item {
+              gap: 0.42rem;
+              padding: 0.34rem 0.52rem;
+              font-size: 0.76rem;
+              opacity: 0.76;
             }
           }
         `}

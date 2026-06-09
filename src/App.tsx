@@ -233,7 +233,8 @@ function ProfileTypedText({ text, showCursor }: { text: string; showCursor: bool
 }
 
 function ProfileNarrative() {
-  const reduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduceMotion = typeof window !== 'undefined'
+    && (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(max-width: 767px)').matches);
   const [narrativeState, setNarrativeState] = useState(() => createProfileNarrativeState(0, reduceMotion));
 
   useEffect(() => {
@@ -573,12 +574,27 @@ function App() {
   const visualPanelActiveRef = useRef(false);
   const visualPanelDelayRef = useRef<number | null>(null);
   const projectCardRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const activeFocusIndexRef = useRef(activeFocusIndex);
+  const focusDetailProgressRef = useRef(focusDetailProgress);
+  const activeTimelineIndexRef = useRef(activeTimelineIndex);
   const activeFocus = activeFocusIndex >= 0 ? focusAreas[activeFocusIndex] : focusIntro;
   const activeFocusNumber = activeFocusIndex >= 0 ? `0${activeFocusIndex + 1}` : '00';
   const isLightTheme = themeMode === 'light';
   const canDecreaseFont = fontScaleIndex > 0;
   const canIncreaseFont = fontScaleIndex < fontScaleOptions.length - 1;
   const visibleProjects = projects.filter((project) => project.visible);
+
+  useEffect(() => {
+    activeFocusIndexRef.current = activeFocusIndex;
+  }, [activeFocusIndex]);
+
+  useEffect(() => {
+    focusDetailProgressRef.current = focusDetailProgress;
+  }, [focusDetailProgress]);
+
+  useEffect(() => {
+    activeTimelineIndexRef.current = activeTimelineIndex;
+  }, [activeTimelineIndex]);
 
   useEffect(() => {
     emailjs.init('WNWYjZIAts5Z6rjBo');
@@ -671,34 +687,42 @@ function App() {
         const nextDetailIndex = railEntry > 0.18 ? Math.round(targetDetailIndex) : 0;
         const nextActiveIndex = nextDetailIndex - 1;
 
-        setFocusCardStyles(
-          focusAreas.map((_, index) => {
-            const distance = index + 1 - targetDetailIndex;
-            const opacity = clamp(1 - Math.abs(distance) * 0.8, 0, 1) * railEntry;
+        if (focusDetailProgressRef.current !== nextDetailIndex) {
+          focusDetailProgressRef.current = nextDetailIndex;
+          setFocusDetailProgress(nextDetailIndex);
 
-            return {
-              opacity,
-              scale: 0.92 + opacity * 0.08,
-              y: 0,
-              x: distance * 106,
-            };
-          }),
-        );
-        setFocusDetailCardStyles(
-          focusDetailItems.map((_, index) => {
-            const distance = index - targetDetailIndex;
-            const opacity = clamp(1 - Math.abs(distance) * 0.8, 0, 1);
+          setFocusCardStyles(
+            focusAreas.map((_, index) => {
+              const distance = index + 1 - nextDetailIndex;
+              const opacity = clamp(1 - Math.abs(distance) * 0.9, 0, 1) * railEntry;
 
-            return {
-              opacity,
-              scale: 0.92 + opacity * 0.08,
-              y: 0,
-              x: distance * 106,
-            };
-          }),
-        );
-        setFocusDetailProgress(targetDetailIndex);
-        setActiveFocusIndex(nextActiveIndex);
+              return {
+                opacity,
+                scale: 0.94 + opacity * 0.06,
+                y: 0,
+                x: distance * 106,
+              };
+            }),
+          );
+          setFocusDetailCardStyles(
+            focusDetailItems.map((_, index) => {
+              const distance = index - nextDetailIndex;
+              const opacity = clamp(1 - Math.abs(distance) * 0.9, 0, 1);
+
+              return {
+                opacity,
+                scale: 0.94 + opacity * 0.06,
+                y: 0,
+                x: distance * 106,
+              };
+            }),
+          );
+        }
+
+        if (activeFocusIndexRef.current !== nextActiveIndex) {
+          activeFocusIndexRef.current = nextActiveIndex;
+          setActiveFocusIndex(nextActiveIndex);
+        }
         return;
       }
 
@@ -764,7 +788,10 @@ function App() {
 
     const updateTimelineFocus = () => {
       if (window.innerWidth >= 1024) {
-        setActiveTimelineIndex(0);
+        if (activeTimelineIndexRef.current !== 0) {
+          activeTimelineIndexRef.current = 0;
+          setActiveTimelineIndex(0);
+        }
         return;
       }
 
@@ -781,7 +808,10 @@ function App() {
       const progress = Math.min(Math.max((window.innerHeight * 0.08 - rect.top) / scrollableDistance, 0), 1);
       const nextIndex = Math.min(Math.floor(progress * timeline.length), timeline.length - 1);
 
-      setActiveTimelineIndex(nextIndex);
+      if (activeTimelineIndexRef.current !== nextIndex) {
+        activeTimelineIndexRef.current = nextIndex;
+        setActiveTimelineIndex(nextIndex);
+      }
     };
 
     const requestUpdate = () => {
@@ -883,8 +913,10 @@ function App() {
         return;
       }
 
-      visualPanelActiveRef.current = isInFocus;
-      setIsVisualPanelFocused(isInFocus);
+      if (visualPanelActiveRef.current !== isInFocus) {
+        visualPanelActiveRef.current = isInFocus;
+        setIsVisualPanelFocused(isInFocus);
+      }
     };
 
     const requestUpdate = () => {
@@ -907,51 +939,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    let animationFrame = 0;
-
-    const updateMobileProjectFocus = () => {
-      if (window.innerWidth >= 1024 || selectedProject) {
-        return;
-      }
-
-      const focusLine = window.innerHeight * 0.52;
-      let closestIndex: number | null = null;
-      let closestDistance = Number.POSITIVE_INFINITY;
-
-      projectCardRefs.current.forEach((element, index) => {
-        if (!element) return;
-
-        const rect = element.getBoundingClientRect();
-        const isInsideFocusArea = rect.bottom > window.innerHeight * 0.22 && rect.top < window.innerHeight * 0.78;
-
-        if (!isInsideFocusArea) return;
-
-        const cardCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(cardCenter - focusLine);
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = index;
-        }
-      });
-
-      setHoveredProjectIndex(closestIndex);
-    };
-
-    const requestUpdate = () => {
-      cancelAnimationFrame(animationFrame);
-      animationFrame = requestAnimationFrame(updateMobileProjectFocus);
-    };
-
-    updateMobileProjectFocus();
-    window.addEventListener('scroll', requestUpdate, { passive: true });
-    window.addEventListener('resize', requestUpdate);
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener('scroll', requestUpdate);
-      window.removeEventListener('resize', requestUpdate);
-    };
+    if (window.innerWidth < 1024) {
+      setHoveredProjectIndex(null);
+    }
   }, [selectedProject]);
 
   return (
@@ -1172,7 +1162,7 @@ function App() {
 
                 <div className="relative mt-6 h-60 overflow-hidden">
                   <div
-                    className="flex h-full will-change-transform"
+                    className="flex h-full transition-transform duration-500 ease-out will-change-transform"
                     style={{
                       transform: `translate3d(${-focusDetailProgress * 100}%, 0, 0)`,
                     }}
@@ -1457,7 +1447,11 @@ function App() {
 
             <div
               className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-6"
-              onMouseLeave={() => setHoveredProjectIndex(null)}
+              onMouseLeave={() => {
+                if (window.innerWidth >= 1024) {
+                  setHoveredProjectIndex(null);
+                }
+              }}
             >
               {visibleProjects.map((project, index) => {
                 const isHovered = hoveredProjectIndex === index;
@@ -1471,20 +1465,28 @@ function App() {
                     }}
                     type="button"
                     onClick={() => setSelectedProject(project)}
-                    onFocus={() => setHoveredProjectIndex(index)}
-                    onMouseEnter={() => setHoveredProjectIndex(index)}
+                    onFocus={() => {
+                      if (window.innerWidth >= 1024) {
+                        setHoveredProjectIndex(index);
+                      }
+                    }}
+                    onMouseEnter={() => {
+                      if (window.innerWidth >= 1024) {
+                        setHoveredProjectIndex(index);
+                      }
+                    }}
                     className={`project-card-surface group relative flex min-h-[18rem] flex-col overflow-hidden rounded-[1.1rem] border border-white/10 bg-[#171b24] text-left shadow-xl shadow-black/15 transition duration-500 sm:min-h-[21rem] sm:rounded-[1.35rem] lg:min-h-[32rem] lg:rounded-[2rem] lg:shadow-2xl lg:shadow-black/20 ${
                       index === 0 || index === 3 ? 'lg:col-span-2' : ''
                     } ${
                       isHovered
                         ? 'z-10 -translate-y-2 border-cyan-300/40 bg-[#1d2530] shadow-cyan-950/40 lg:scale-[1.015]'
-                        : 'hover:-translate-y-1 hover:border-cyan-300/25 hover:bg-[#1b202a]'
+                        : 'lg:hover:-translate-y-1 lg:hover:border-cyan-300/25 lg:hover:bg-[#1b202a]'
                     } ${
                       isDimmed ? 'scale-[0.985] brightness-75 grayscale saturate-0 lg:scale-[0.98]' : ''
                     }`}
                   >
                     <div className="relative h-24 overflow-hidden sm:h-36 lg:h-80">
-                      <div className="absolute inset-0 transition duration-700 group-hover:scale-105">
+                      <div className="project-preview-inner absolute inset-0 transition duration-700 lg:group-hover:scale-105">
                         <ProjectPreview project={project} />
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/55 via-zinc-950/5 to-transparent"></div>
@@ -1499,7 +1501,7 @@ function App() {
                           <p className="text-[0.55rem] font-black uppercase tracking-[0.16em] text-emerald-300 sm:text-[0.68rem] sm:tracking-[0.22em]">{project.type}</p>
                           <h3 className="project-card-title mt-1 text-lg font-black tracking-tight text-white sm:mt-2 sm:text-xl lg:mt-2 lg:text-3xl">{project.title}</h3>
                         </div>
-                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-cyan-400/10 text-sm text-cyan-300 ring-1 ring-cyan-400/20 transition group-hover:bg-cyan-300 group-hover:text-zinc-950 sm:h-10 sm:w-10 sm:rounded-2xl sm:text-lg lg:h-12 lg:w-12 lg:text-xl">
+                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-cyan-400/10 text-sm text-cyan-300 ring-1 ring-cyan-400/20 transition lg:group-hover:bg-cyan-300 lg:group-hover:text-zinc-950 sm:h-10 sm:w-10 sm:rounded-2xl sm:text-lg lg:h-12 lg:w-12 lg:text-xl">
                           <i className={project.icon}></i>
                         </span>
                       </div>
@@ -1516,7 +1518,7 @@ function App() {
 
                       <div className="mt-auto flex items-center justify-between pt-4 sm:pt-6 lg:pt-6">
                         <span className="hidden text-xs font-bold text-zinc-500 sm:inline lg:text-sm">Abrir estudo de caso</span>
-                        <span className="ml-auto grid h-8 w-8 place-items-center rounded-full border border-cyan-300/30 text-cyan-200 transition group-hover:bg-cyan-300 group-hover:text-zinc-950 sm:h-9 sm:w-9 lg:h-10 lg:w-10">
+                        <span className="ml-auto grid h-8 w-8 place-items-center rounded-full border border-cyan-300/30 text-cyan-200 transition lg:group-hover:bg-cyan-300 lg:group-hover:text-zinc-950 sm:h-9 sm:w-9 lg:h-10 lg:w-10">
                           <i className="fa-solid fa-arrow-right"></i>
                         </span>
                       </div>

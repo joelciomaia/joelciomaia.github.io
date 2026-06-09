@@ -1013,17 +1013,51 @@ html[data-theme='light'] .profile-typing-cursor {
 }
 
 @media (max-width: 1023px) {
+  .portfolio-bg-lines {
+    display: none;
+  }
+
+  .portfolio-bg-illumination {
+    opacity: 0.38;
+  }
+
+  .portfolio-bg-illumination span {
+    animation: none;
+    filter: blur(28px);
+  }
+
   .timeline-scroll-section {
-    min-height: 230svh;
-    padding-top: 4.5rem;
-    padding-bottom: 0;
+    min-height: 190svh;
+    padding-top: 3.25rem;
+    padding-bottom: 2rem;
   }
 
   .timeline-scroll-sticky {
     position: sticky;
-    top: 5.5rem;
-    align-content: center;
-    min-height: calc(100svh - 6rem);
+    top: 4.75rem;
+    align-content: start;
+    min-height: auto;
+    gap: 1rem;
+  }
+
+  .formation-panel {
+    border-radius: 1.35rem !important;
+    padding: 1.15rem !important;
+  }
+
+  .formation-panel h2 {
+    font-size: 1.65rem;
+    line-height: 1.08;
+  }
+
+  .formation-panel p {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .formation-card {
+    border-radius: 1.25rem !important;
+    padding: 1.05rem !important;
   }
 
   .portfolio-tilt-card {
@@ -1044,11 +1078,46 @@ html[data-theme='light'] .profile-typing-cursor {
   }
 
   .timeline-card {
-    min-height: 14.5rem;
+    min-height: 11.75rem;
+  }
+
+  .timeline-card h3 {
+    font-size: 1.25rem;
+    line-height: 1.15;
+  }
+
+  .timeline-card p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .project-card-surface {
+    transition-duration: 180ms;
+  }
+
+  .project-card-surface:hover,
+  .project-card-surface:focus {
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .project-preview-inner {
+    transition: none !important;
+    transform: none !important;
   }
 }
 
 @media (max-width: 640px) {
+  .timeline-scroll-section {
+    min-height: 180svh;
+    padding-top: 2.5rem;
+  }
+
+  .timeline-scroll-sticky {
+    top: 4.25rem;
+    gap: 0.85rem;
+  }
+
   .profile-narrative-title {
     min-height: 2.45em;
   }
