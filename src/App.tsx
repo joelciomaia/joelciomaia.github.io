@@ -582,6 +582,7 @@ function App() {
   const isLightTheme = themeMode === 'light';
   const canDecreaseFont = fontScaleIndex > 0;
   const canIncreaseFont = fontScaleIndex < fontScaleOptions.length - 1;
+  const currentYear = new Date().getFullYear();
   const visibleProjects = projects.filter((project) => project.visible);
 
   useEffect(() => {
@@ -1677,8 +1678,9 @@ function App() {
         </div>
       )}
 
-      <footer className="relative z-10 border-t border-white/10 px-6 py-8 text-center text-sm text-zinc-500">
-        Joelcio Maia • Portfólio em Tecnologia da Informação • 2026
+      <footer className="relative z-10 space-y-2 border-t border-white/10 px-6 py-8 text-center text-sm text-zinc-500">
+        <p>&copy; {currentYear} Joelcio J. Maia. - Todos os direitos reservados.</p>
+        <p>Infraestrutura e Redes &bull; Tecnologia da Informação &bull; Análise e Desenvolvimento de Sistemas</p>
       </footer>
     </div>
   );

@@ -514,19 +514,11 @@ html[data-theme='light'] .portfolio-brand:focus-visible .portfolio-logo-letter {
 }
 
 .project-card-surface .project-case-visual::after {
-  content: '';
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  height: 32%;
-  background: linear-gradient(180deg, transparent, rgb(3 7 18 / 0.36));
-  pointer-events: none;
+  content: none;
 }
 
 .project-case-shade {
-  background:
-    linear-gradient(180deg, rgb(3 7 18 / 0.04), transparent 42%, rgb(3 7 18 / 0.08)),
-    radial-gradient(circle at 10% 10%, rgb(255 255 255 / 0.12), transparent 12rem);
+  background: radial-gradient(circle at 10% 10%, rgb(255 255 255 / 0.08), transparent 12rem);
   pointer-events: none;
 }
 
@@ -564,9 +556,7 @@ html[data-theme='light'] .portfolio-brand:focus-visible .portfolio-logo-letter {
   background:
     radial-gradient(circle at 94% 16%, rgb(255 255 255 / 0.38), transparent 7rem),
     linear-gradient(135deg, #67e8f9 0%, #22d3ee 48%, #0ea5e9 100%);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.26),
-    0 -16px 34px rgb(8 47 73 / 0.22);
+  box-shadow: none;
 }
 
 .project-case-strip::before {
@@ -578,7 +568,7 @@ html[data-theme='light'] .portfolio-brand:focus-visible .portfolio-logo-letter {
   height: 0.55rem;
   border-radius: 0.85rem 0.85rem 0 0;
   background: linear-gradient(135deg, #67e8f9, #22d3ee 54%, #0ea5e9);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.24);
+  box-shadow: none;
 }
 
 .project-case-strip::after {
@@ -666,14 +656,15 @@ html[data-theme='light'] .portfolio-brand:focus-visible .portfolio-logo-letter {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border: 1px solid rgb(6 16 22 / 0.28);
+  border: 1px solid #061016;
   border-radius: 999px;
-  background: rgb(6 16 22 / 0.72);
+  background: #061016;
   padding: 0.24rem 0.48rem;
-  color: #ecfeff;
+  color: #ffffff !important;
   font-size: 0.62rem;
   font-weight: 900;
   line-height: 1;
+  text-shadow: none;
   transition:
     background-color 220ms ease,
     border-color 220ms ease,
@@ -698,12 +689,12 @@ html[data-theme='light'] .portfolio-brand:focus-visible .portfolio-logo-letter {
 .project-card-surface:hover .project-case-tags span,
 .project-card-surface:focus .project-case-tags span,
 .project-card-surface:focus-visible .project-case-tags span {
-  border-color: rgb(6 16 22 / 0.82);
-  background: rgb(6 16 22 / 0.92);
-  color: #ffffff;
+  border-color: #020617;
+  background: #020617;
+  color: #ffffff !important;
   box-shadow:
     0 10px 22px rgb(7 16 20 / 0.18),
-    inset 0 0 16px rgb(34 211 238 / 0.18);
+    0 0 0 1px rgb(255 255 255 / 0.08);
   transform: translateY(-0.08rem);
 }
 
@@ -725,7 +716,7 @@ html[data-theme='light'] .portfolio-brand:focus-visible .portfolio-logo-letter {
   height: 2rem;
   flex: 0 0 auto;
   place-items: center;
-  border: 1px solid rgb(6 16 22 / 0.32);
+  border: 1px solid #061016;
   border-radius: 999px;
   background: rgb(6 16 22 / 0.1);
   color: #061016;
@@ -738,7 +729,7 @@ html[data-theme='light'] .portfolio-brand:focus-visible .portfolio-logo-letter {
 .project-card-surface:hover .project-case-arrow,
 .project-card-surface:focus .project-case-arrow,
 .project-card-surface:focus-visible .project-case-arrow {
-  border-color: rgb(6 16 22 / 0.78);
+  border-color: #020617;
   background: #ffffff;
   box-shadow:
     0 14px 28px rgb(7 16 20 / 0.16),
@@ -1539,21 +1530,23 @@ html[data-theme='light'] .project-case-arrow {
 }
 
 html[data-theme='light'] .project-case-tags span {
-  border-color: rgb(6 16 22 / 0.28);
-  color: #ecfeff !important;
+  border-color: #061016;
+  background: #061016;
+  color: #ffffff !important;
 }
 
 html[data-theme='light'] .project-card-surface:hover .project-case-tags span,
 html[data-theme='light'] .project-card-surface:focus .project-case-tags span,
 html[data-theme='light'] .project-card-surface:focus-visible .project-case-tags span {
-  border-color: rgb(6 16 22 / 0.82);
+  border-color: #020617;
+  background: #020617;
   color: #ffffff !important;
 }
 
 html[data-theme='light'] .project-card-surface:hover .project-case-arrow,
 html[data-theme='light'] .project-card-surface:focus .project-case-arrow,
 html[data-theme='light'] .project-card-surface:focus-visible .project-case-arrow {
-  border-color: rgb(6 16 22 / 0.78);
+  border-color: #020617;
 }
 
 html[data-theme='light'] .project-status-pill {
