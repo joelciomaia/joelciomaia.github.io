@@ -1446,7 +1446,7 @@ function App() {
             </div>
 
             <div
-              className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-6"
+              className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-2 lg:gap-8"
               onMouseLeave={() => {
                 if (window.innerWidth >= 1024) {
                   setHoveredProjectIndex(null);
@@ -1475,53 +1475,42 @@ function App() {
                         setHoveredProjectIndex(index);
                       }
                     }}
-                    className={`project-card-surface group relative flex min-h-[18rem] flex-col overflow-hidden rounded-[1.1rem] border border-white/10 bg-[#171b24] text-left shadow-xl shadow-black/15 transition duration-500 sm:min-h-[21rem] sm:rounded-[1.35rem] lg:min-h-[32rem] lg:rounded-[2rem] lg:shadow-2xl lg:shadow-black/20 ${
-                      index === 0 || index === 3 ? 'lg:col-span-2' : ''
-                    } ${
+                    className={`project-card-surface group relative overflow-hidden rounded-[1.1rem] border text-left shadow-xl shadow-black/15 transition duration-500 sm:rounded-[1.35rem] lg:rounded-[1.5rem] lg:shadow-2xl lg:shadow-black/20 ${
                       isHovered
-                        ? 'z-10 -translate-y-2 border-cyan-300/40 bg-[#1d2530] shadow-cyan-950/40 lg:scale-[1.015]'
-                        : 'lg:hover:-translate-y-1 lg:hover:border-cyan-300/25 lg:hover:bg-[#1b202a]'
+                        ? 'z-10 -translate-y-2 shadow-cyan-950/40 lg:scale-[1.015]'
+                        : 'lg:hover:-translate-y-1'
                     } ${
-                      isDimmed ? 'scale-[0.985] brightness-75 grayscale saturate-0 lg:scale-[0.98]' : ''
+                      isDimmed ? 'scale-[0.985] lg:scale-[0.955]' : ''
                     }`}
                   >
-                    <div className="relative h-24 overflow-hidden sm:h-36 lg:h-80">
+                    <div className="project-case-visual relative aspect-[1.08/1] overflow-hidden sm:aspect-[1.35/1] lg:aspect-[1.52/1]">
                       <div className="project-preview-inner absolute inset-0 transition duration-700 lg:group-hover:scale-105">
                         <ProjectPreview project={project} />
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/55 via-zinc-950/5 to-transparent"></div>
-                      <div className="absolute left-2 top-2 max-w-[calc(100%-1rem)] truncate rounded-full border border-white/10 bg-black/35 px-2 py-1 text-[0.52rem] font-black uppercase tracking-[0.12em] text-cyan-100 backdrop-blur sm:left-4 sm:top-4 sm:px-3 sm:py-1.5 sm:text-[0.68rem] sm:tracking-[0.18em] lg:left-5 lg:top-5 lg:px-4 lg:py-2 lg:text-xs lg:tracking-[0.2em]">
+                      <div className="project-case-shade absolute inset-0"></div>
+                      <div className="project-status-pill absolute left-2 top-2 max-w-[calc(100%-1rem)] truncate rounded-full px-2 py-1 text-[0.52rem] font-black uppercase tracking-[0.12em] sm:left-4 sm:top-4 sm:px-3 sm:py-1.5 sm:text-[0.68rem] sm:tracking-[0.18em] lg:left-5 lg:top-5 lg:px-4 lg:py-2 lg:text-xs lg:tracking-[0.2em]">
                         {project.status}
                       </div>
                     </div>
 
-                    <div className="project-folder-panel flex flex-1 flex-col p-3 sm:p-4 lg:p-5">
-                      <div className="flex items-start justify-between gap-2 sm:gap-4">
-                        <div>
-                          <p className="text-[0.55rem] font-black uppercase tracking-[0.16em] text-emerald-300 sm:text-[0.68rem] sm:tracking-[0.22em]">{project.type}</p>
-                          <h3 className="project-card-title mt-1 text-lg font-black tracking-tight text-white sm:mt-2 sm:text-xl lg:mt-2 lg:text-3xl">{project.title}</h3>
-                        </div>
-                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-cyan-400/10 text-sm text-cyan-300 ring-1 ring-cyan-400/20 transition lg:group-hover:bg-cyan-300 lg:group-hover:text-zinc-950 sm:h-10 sm:w-10 sm:rounded-2xl sm:text-lg lg:h-12 lg:w-12 lg:text-xl">
-                          <i className={project.icon}></i>
-                        </span>
-                      </div>
+                    <div className="project-case-strip">
+                      <div className="min-w-0">
+                        <p className="project-case-kicker">{project.type}</p>
+                        <h3 className="project-card-title">{project.title}</h3>
+                        <p className="project-card-tagline">{project.tagline}</p>
 
-                      <p className="project-card-tagline mt-3 text-xs leading-5 text-zinc-400 sm:mt-4 sm:text-sm sm:leading-6 lg:mt-4 lg:text-base lg:leading-7">{project.tagline}</p>
-
-                      <div className="mt-4 flex flex-wrap gap-1.5 sm:mt-5 sm:gap-2 lg:mt-5">
+                        <div className="project-case-tags">
                         {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                          <span key={tag} className={`rounded-full bg-emerald-400/10 px-2 py-1 text-[0.62rem] font-semibold text-emerald-200 ring-1 ring-emerald-400/15 sm:px-3 sm:text-xs ${tagIndex === 2 ? 'hidden sm:inline-flex' : ''}`}>
+                          <span key={tag} className={tagIndex === 2 ? 'hidden sm:inline-flex' : ''}>
                             {tag}
                           </span>
                         ))}
+                        </div>
                       </div>
 
-                      <div className="mt-auto flex items-center justify-between pt-4 sm:pt-6 lg:pt-6">
-                        <span className="hidden text-xs font-bold text-zinc-500 sm:inline lg:text-sm">Abrir estudo de caso</span>
-                        <span className="ml-auto grid h-8 w-8 place-items-center rounded-full border border-cyan-300/30 text-cyan-200 transition lg:group-hover:bg-cyan-300 lg:group-hover:text-zinc-950 sm:h-9 sm:w-9 lg:h-10 lg:w-10">
-                          <i className="fa-solid fa-arrow-right"></i>
-                        </span>
-                      </div>
+                      <span className="project-case-arrow" aria-hidden="true">
+                        <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                      </span>
                     </div>
                   </button>
                 );
