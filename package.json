@@ -1,0 +1,9 @@
+{
+  "name": "portfolio-leve-joelcio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pagina de portfolio leve, estatica e responsiva.",
+  "scripts": {
+    "check": "node --check script.js && node -e \"for (const f of ['index.html','projetos.html','styles.css','script.js','assets/portfolio-visual.svg','assets/project-ovinosync.svg','assets/project-portfolio.svg','assets/project-pontodeapoio.svg']) require('node:fs').accessSync(f)\""
+  }
+}

@@ -1,0 +1,19 @@
+<svg width="720" height="460" viewBox="0 0 720 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="460" rx="8" fill="#F7F2E8"/>
+  <rect x="36" y="36" width="648" height="388" rx="8" fill="#FFF9EF" stroke="rgba(22,19,15,0.12)"/>
+  <rect x="70" y="70" width="86" height="18" rx="9" fill="#0F766E"/>
+  <rect x="442" y="72" width="66" height="10" rx="5" fill="#B7A897"/>
+  <rect x="524" y="72" width="66" height="10" rx="5" fill="#B7A897"/>
+  <rect x="70" y="136" width="312" height="34" rx="6" fill="#141414"/>
+  <rect x="70" y="188" width="386" height="14" rx="7" fill="#6B5F52"/>
+  <rect x="70" y="218" width="328" height="14" rx="7" fill="#6B5F52"/>
+  <rect x="70" y="280" width="154" height="86" rx="8" fill="#E8F4F1" stroke="#B9DCD5"/>
+  <rect x="248" y="280" width="154" height="86" rx="8" fill="#FFF3D8" stroke="#E8C56A"/>
+  <rect x="426" y="280" width="154" height="86" rx="8" fill="#F5E4E4" stroke="#E3B5B5"/>
+  <circle cx="530" cy="166" r="70" fill="#0F766E" fill-opacity="0.12"/>
+  <path d="M500 176c22-52 78-52 100 0" stroke="#0F766E" stroke-width="12" stroke-linecap="round"/>
+  <path d="M522 156h56" stroke="#0F766E" stroke-width="12" stroke-linecap="round"/>
+  <text x="94" y="332" fill="#0F766E" font-family="Arial, sans-serif" font-size="18" font-weight="800">Ajuda agora</text>
+  <text x="274" y="332" fill="#9A6400" font-family="Arial, sans-serif" font-size="18" font-weight="800">Orientação</text>
+  <text x="452" y="332" fill="#8F3F3F" font-family="Arial, sans-serif" font-size="18" font-weight="800">Rede de apoio</text>
+</svg>
