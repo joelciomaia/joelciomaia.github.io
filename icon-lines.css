@@ -4,18 +4,17 @@
   initial-value: 0deg;
 }
 
-/* Mantém o contêiner dos ícones estático. */
+/* O fundo permanece fixo; apenas os traços e a borda mudam gradualmente. */
 .icon-shell {
-  border-color: rgba(196, 181, 253, 0.3) !important;
+  border-color: rgba(196, 181, 253, 0.34) !important;
   background: rgba(139, 92, 246, 0.08) !important;
   color: #c4b5fd;
-  animation: none !important;
+  animation: icon-frame-tone 13.5s linear infinite !important;
 }
 
-/* A alternância de cor acontece somente nos traços internos do SVG. */
 .icon-shell svg {
-  color: #c4b5fd;
-  animation: icon-stroke-tone 9.6s ease-in-out infinite;
+  color: inherit;
+  animation: none !important;
 }
 
 .icon-shell svg path,
@@ -27,31 +26,31 @@
   stroke: currentColor;
 }
 
-.focus-card:nth-child(1) .icon-shell svg {
-  animation-delay: -0.7s;
+.focus-card:nth-child(1) .icon-shell {
+  animation-delay: -0.8s !important;
 }
 
-.focus-card:nth-child(2) .icon-shell svg {
-  animation-delay: -2.4s;
+.focus-card:nth-child(2) .icon-shell {
+  animation-delay: -3.1s !important;
 }
 
-.focus-card:nth-child(3) .icon-shell svg {
-  animation-delay: -4.1s;
+.focus-card:nth-child(3) .icon-shell {
+  animation-delay: -5.4s !important;
 }
 
-.focus-card:nth-child(4) .icon-shell svg {
-  animation-delay: -6.2s;
+.focus-card:nth-child(4) .icon-shell {
+  animation-delay: -7.6s !important;
 }
 
-.focus-card:nth-child(5) .icon-shell svg {
-  animation-delay: -7.8s;
+.focus-card:nth-child(5) .icon-shell {
+  animation-delay: -9.9s !important;
 }
 
-.focus-card:nth-child(6) .icon-shell svg {
-  animation-delay: -9.1s;
+.focus-card:nth-child(6) .icon-shell {
+  animation-delay: -12.2s !important;
 }
 
-/* Remove o gradiente multicolorido dos botões. */
+/* Os botões ficam estáticos até receberem hover ou foco. */
 .button:not(.button-dark),
 .contact-links a {
   --button-pulse-angle: 0deg;
@@ -60,7 +59,7 @@
   animation: none !important;
 }
 
-/* No hover, apenas um pulso laranja percorre a borda. */
+/* Um único pulso laranja percorre a borda com aceleração suave. */
 .button:not(.button-dark):hover,
 .button:not(.button-dark):focus-visible,
 .contact-links a:hover,
@@ -71,64 +70,74 @@
     conic-gradient(
       from var(--button-pulse-angle),
       transparent 0deg,
-      transparent 230deg,
-      rgba(245, 158, 11, 0.03) 244deg,
-      rgba(245, 158, 11, 0.2) 270deg,
-      rgba(245, 158, 11, 0.78) 302deg,
+      transparent 226deg,
+      rgba(245, 158, 11, 0.02) 242deg,
+      rgba(245, 158, 11, 0.16) 270deg,
+      rgba(245, 158, 11, 0.7) 302deg,
       #fbbf24 316deg,
       transparent 334deg,
       transparent 360deg
     ) border-box;
   box-shadow: none;
-  animation: button-orange-pulse 1.05s cubic-bezier(0.42, 0, 0.18, 1) infinite !important;
+  animation: button-orange-pulse 1.4s infinite !important;
 }
 
-@keyframes icon-stroke-tone {
-  0%,
-  25%,
+/* Remove o brilho ao redor do botão de envio. */
+.contact-form .button,
+.button-dark,
+.contact-form .button:hover,
+.contact-form .button:focus-visible,
+.button-dark:hover,
+.button-dark:focus-visible {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+@keyframes icon-frame-tone {
+  0% {
+    color: #c4b5fd;
+    border-color: rgba(139, 92, 246, 0.46);
+  }
+
+  33% {
+    color: #7dd3fc;
+    border-color: rgba(56, 189, 248, 0.46);
+  }
+
+  67% {
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.46);
+  }
+
   100% {
     color: #c4b5fd;
-  }
-
-  32%,
-  55% {
-    color: #7dd3fc;
-  }
-
-  63%,
-  80% {
-    color: #fbbf24;
-  }
-
-  88% {
-    color: #c4b5fd;
+    border-color: rgba(139, 92, 246, 0.46);
   }
 }
 
 @keyframes button-orange-pulse {
   0% {
     --button-pulse-angle: 0deg;
-    opacity: 0.86;
+    animation-timing-function: cubic-bezier(0.42, 0, 0.68, 0.34);
   }
 
-  28% {
-    --button-pulse-angle: 52deg;
-    opacity: 0.96;
+  34% {
+    --button-pulse-angle: 58deg;
+    animation-timing-function: cubic-bezier(0.18, 0.7, 0.22, 1);
   }
 
-  72% {
+  74% {
     --button-pulse-angle: 304deg;
-    opacity: 1;
+    animation-timing-function: cubic-bezier(0.36, 0, 0.58, 1);
   }
 
   100% {
     --button-pulse-angle: 360deg;
-    opacity: 0.86;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .icon-shell svg,
+  .icon-shell,
   .button:not(.button-dark):hover,
   .button:not(.button-dark):focus-visible,
   .contact-links a:hover,
