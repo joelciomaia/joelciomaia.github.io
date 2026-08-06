@@ -8,9 +8,65 @@ function setupVisualOverrides() {
 
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = "./icon-lines.css?v=20260806-3";
+  stylesheet.href = "./icon-lines.css?v=20260806-4";
   stylesheet.dataset.visualOverrides = "true";
   document.head.appendChild(stylesheet);
+}
+
+function setupButtonPulses() {
+  const svgNamespace = "http://www.w3.org/2000/svg";
+  const targets = document.querySelectorAll(
+    ".button:not(.button-dark), .contact-links a",
+  );
+
+  targets.forEach((target) => {
+    if (target.querySelector(":scope > .button-pulse-border")) return;
+
+    const svg = document.createElementNS(svgNamespace, "svg");
+    const rect = document.createElementNS(svgNamespace, "rect");
+
+    svg.classList.add("button-pulse-border");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+
+    rect.setAttribute("pathLength", "100");
+    svg.appendChild(rect);
+    target.appendChild(svg);
+
+    const updateGeometry = () => {
+      const width = Math.max(1, target.offsetWidth);
+      const height = Math.max(1, target.offsetHeight);
+      const computedRadius = Number.parseFloat(
+        window.getComputedStyle(target).borderRadius,
+      );
+      const radius = Number.isFinite(computedRadius)
+        ? Math.min(computedRadius, height / 2)
+        : height / 2;
+      const inset = 1;
+
+      svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      rect.setAttribute("x", String(inset));
+      rect.setAttribute("y", String(inset));
+      rect.setAttribute("width", String(Math.max(0, width - inset * 2)));
+      rect.setAttribute("height", String(Math.max(0, height - inset * 2)));
+      rect.setAttribute("rx", String(Math.max(0, radius - inset)));
+      rect.setAttribute("ry", String(Math.max(0, radius - inset)));
+    };
+
+    const runPulse = () => {
+      updateGeometry();
+      svg.classList.remove("is-running");
+      void svg.getBoundingClientRect();
+      svg.classList.add("is-running");
+    };
+
+    target.addEventListener("mouseenter", runPulse);
+    target.addEventListener("focus", runPulse);
+
+    rect.addEventListener("animationend", () => {
+      svg.classList.remove("is-running");
+    });
+  });
 }
 
 function showNotification(message, isSuccess = true) {
@@ -87,6 +143,7 @@ function setupCurrentYear() {
 
 window.addEventListener("DOMContentLoaded", () => {
   setupVisualOverrides();
+  setupButtonPulses();
   setupCurrentYear();
   setupContactForm();
 });
