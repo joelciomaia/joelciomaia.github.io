@@ -1,9 +1,3 @@
-@property --button-pulse-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
 /* O fundo permanece fixo; apenas os traços e a borda mudam gradualmente. */
 .icon-shell {
   border-color: rgba(196, 181, 253, 0.34) !important;
@@ -50,46 +44,18 @@
   animation-delay: -12.2s !important;
 }
 
-/* Os botões ficam totalmente estáticos até receberem hover ou foco. */
+/* Os botões permanecem estáticos. */
 .button:not(.button-dark),
 .contact-links a {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
   border-color: rgba(196, 181, 253, 0.28);
   background: #0d1222;
   box-shadow: none;
   animation: none !important;
 }
 
-.button:not(.button-dark)::after,
-.contact-links a::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  z-index: 2;
-  padding: 1px;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  background: conic-gradient(
-    from var(--button-pulse-angle),
-    transparent 0deg,
-    transparent 226deg,
-    rgba(245, 158, 11, 0.02) 242deg,
-    rgba(245, 158, 11, 0.16) 270deg,
-    rgba(245, 158, 11, 0.72) 302deg,
-    #fbbf24 316deg,
-    transparent 334deg,
-    transparent 360deg
-  );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-/* Um único pulso rápido percorre a borda e desaparece. */
 .button:not(.button-dark):hover,
 .button:not(.button-dark):focus-visible,
 .contact-links a:hover,
@@ -100,11 +66,30 @@
   animation: none !important;
 }
 
-.button:not(.button-dark):hover::after,
-.button:not(.button-dark):focus-visible::after,
-.contact-links a:hover::after,
-.contact-links a:focus-visible::after {
-  animation: button-orange-once 720ms linear 1 both;
+/* O SVG acompanha o perímetro real do botão em velocidade constante. */
+.button-pulse-border {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.button-pulse-border rect {
+  fill: none;
+  stroke: #fbbf24;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 22 78;
+  stroke-dashoffset: 100;
+  opacity: 0;
+}
+
+.button-pulse-border.is-running rect {
+  animation: button-pulse-once 620ms linear 1 both;
 }
 
 /* Remove o brilho ao redor do botão de envio. */
@@ -140,33 +125,29 @@
   }
 }
 
-@keyframes button-orange-once {
+@keyframes button-pulse-once {
   0% {
-    --button-pulse-angle: 0deg;
+    stroke-dashoffset: 100;
     opacity: 0;
   }
 
-  10% {
-    opacity: 0.92;
+  8% {
+    opacity: 0.95;
   }
 
-  88% {
-    --button-pulse-angle: 360deg;
-    opacity: 0.92;
+  92% {
+    opacity: 0.95;
   }
 
   100% {
-    --button-pulse-angle: 360deg;
+    stroke-dashoffset: 0;
     opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .icon-shell,
-  .button:not(.button-dark):hover::after,
-  .button:not(.button-dark):focus-visible::after,
-  .contact-links a:hover::after,
-  .contact-links a:focus-visible::after {
+  .button-pulse-border.is-running rect {
     animation: none !important;
   }
 }
