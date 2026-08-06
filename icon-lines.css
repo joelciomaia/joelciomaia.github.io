@@ -50,36 +50,61 @@
   animation-delay: -12.2s !important;
 }
 
-/* Os botões ficam estáticos até receberem hover ou foco. */
+/* Os botões ficam totalmente estáticos até receberem hover ou foco. */
 .button:not(.button-dark),
 .contact-links a {
-  --button-pulse-angle: 0deg;
+  position: relative;
+  isolation: isolate;
   border-color: rgba(196, 181, 253, 0.28);
   background: #0d1222;
+  box-shadow: none;
   animation: none !important;
 }
 
-/* Um único pulso laranja percorre a borda com aceleração suave. */
+.button:not(.button-dark)::after,
+.contact-links a::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 2;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: conic-gradient(
+    from var(--button-pulse-angle),
+    transparent 0deg,
+    transparent 226deg,
+    rgba(245, 158, 11, 0.02) 242deg,
+    rgba(245, 158, 11, 0.16) 270deg,
+    rgba(245, 158, 11, 0.72) 302deg,
+    #fbbf24 316deg,
+    transparent 334deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Um único pulso rápido percorre a borda e desaparece. */
 .button:not(.button-dark):hover,
 .button:not(.button-dark):focus-visible,
 .contact-links a:hover,
 .contact-links a:focus-visible {
-  border-color: transparent;
-  background:
-    linear-gradient(#151b2e, #151b2e) padding-box,
-    conic-gradient(
-      from var(--button-pulse-angle),
-      transparent 0deg,
-      transparent 226deg,
-      rgba(245, 158, 11, 0.02) 242deg,
-      rgba(245, 158, 11, 0.16) 270deg,
-      rgba(245, 158, 11, 0.7) 302deg,
-      #fbbf24 316deg,
-      transparent 334deg,
-      transparent 360deg
-    ) border-box;
+  border-color: rgba(196, 181, 253, 0.28);
+  background: #151b2e;
   box-shadow: none;
-  animation: button-orange-pulse 1.4s infinite !important;
+  animation: none !important;
+}
+
+.button:not(.button-dark):hover::after,
+.button:not(.button-dark):focus-visible::after,
+.contact-links a:hover::after,
+.contact-links a:focus-visible::after {
+  animation: button-orange-once 720ms linear 1 both;
 }
 
 /* Remove o brilho ao redor do botão de envio. */
@@ -115,33 +140,33 @@
   }
 }
 
-@keyframes button-orange-pulse {
+@keyframes button-orange-once {
   0% {
     --button-pulse-angle: 0deg;
-    animation-timing-function: cubic-bezier(0.42, 0, 0.68, 0.34);
+    opacity: 0;
   }
 
-  34% {
-    --button-pulse-angle: 58deg;
-    animation-timing-function: cubic-bezier(0.18, 0.7, 0.22, 1);
+  10% {
+    opacity: 0.92;
   }
 
-  74% {
-    --button-pulse-angle: 304deg;
-    animation-timing-function: cubic-bezier(0.36, 0, 0.58, 1);
+  88% {
+    --button-pulse-angle: 360deg;
+    opacity: 0.92;
   }
 
   100% {
     --button-pulse-angle: 360deg;
+    opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .icon-shell,
-  .button:not(.button-dark):hover,
-  .button:not(.button-dark):focus-visible,
-  .contact-links a:hover,
-  .contact-links a:focus-visible {
+  .button:not(.button-dark):hover::after,
+  .button:not(.button-dark):focus-visible::after,
+  .contact-links a:hover::after,
+  .contact-links a:focus-visible::after {
     animation: none !important;
   }
 }
