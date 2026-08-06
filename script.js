@@ -2,6 +2,17 @@ const EMAILJS_PUBLIC_KEY = "WNWYjZIAts5Z6rjBo";
 const EMAILJS_SERVICE_ID = "service_ra40jsa";
 const EMAILJS_TEMPLATE_ID = "template_7ae59gy";
 
+function setupVisualOverrides() {
+  const existing = document.querySelector('link[data-visual-overrides="true"]');
+  if (existing) return;
+
+  const stylesheet = document.createElement("link");
+  stylesheet.rel = "stylesheet";
+  stylesheet.href = "./icon-lines.css?v=20260806-1";
+  stylesheet.dataset.visualOverrides = "true";
+  document.head.appendChild(stylesheet);
+}
+
 function showNotification(message, isSuccess = true) {
   const previous = document.querySelector(".contact-notification");
   if (previous) previous.remove();
@@ -75,6 +86,7 @@ function setupCurrentYear() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  setupVisualOverrides();
   setupCurrentYear();
   setupContactForm();
 });
