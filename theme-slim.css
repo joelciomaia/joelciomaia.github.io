@@ -328,147 +328,127 @@ body {
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: blue-trace var(--trace-duration, 24s) linear infinite;
+  animation: mixed-card-trace var(--trace-duration, 96s) linear infinite;
   animation-delay: var(--trace-delay, 0s);
 }
 
 .focus-card:nth-child(1)::after {
   --trace-start: 31deg;
-  --trace-duration: 21.7s;
-  --trace-delay: -15.2s;
-  --trace-opacity: 0.55;
+  --trace-duration: 96s;
+  --trace-delay: -5s;
+  --trace-opacity: 0.48;
 }
 
 .focus-card:nth-child(2)::after {
   --trace-start: 198deg;
-  --trace-duration: 27.9s;
-  --trace-delay: -4.3s;
-  --trace-opacity: 0.38;
+  --trace-duration: 103s;
+  --trace-delay: -21s;
+  --trace-opacity: 0.44;
 }
 
 .focus-card:nth-child(3)::after {
   --trace-start: 112deg;
-  --trace-duration: 19.6s;
-  --trace-delay: -12.8s;
-  --trace-opacity: 0.5;
+  --trace-duration: 109s;
+  --trace-delay: -38s;
+  --trace-opacity: 0.42;
 }
 
 .focus-card:nth-child(4)::after {
   --trace-start: 284deg;
-  --trace-duration: 36.8s;
-  --trace-delay: -27.4s;
-  --trace-opacity: 0.82;
-  --trace-tail: rgba(245, 158, 11, 0.02);
-  --trace-soft: rgba(245, 158, 11, 0.17);
-  --trace-color: rgba(245, 158, 11, 0.78);
-  --trace-head: #fbbf24;
-  animation-name: orange-pulse;
+  --trace-duration: 92s;
+  --trace-delay: -72s;
+  --trace-opacity: 0.52;
 }
 
 .focus-card:nth-child(5)::after {
   --trace-start: 73deg;
-  --trace-duration: 32.6s;
-  --trace-delay: -19.7s;
-  --trace-opacity: 0.27;
+  --trace-duration: 111s;
+  --trace-delay: -73s;
+  --trace-opacity: 0.34;
 }
 
 .focus-card:nth-child(6)::after {
   --trace-start: 247deg;
-  --trace-duration: 23.4s;
-  --trace-delay: -7.9s;
+  --trace-duration: 99s;
+  --trace-delay: -88s;
   --trace-opacity: 0.46;
 }
 
 .extras-grid article:nth-child(1)::after {
   --trace-start: 166deg;
-  --trace-duration: 29.8s;
-  --trace-delay: -21.4s;
-  --trace-opacity: 0.34;
+  --trace-duration: 105s;
+  --trace-delay: -13s;
+  --trace-opacity: 0.36;
 }
 
 .extras-grid article:nth-child(2)::after {
   --trace-start: 341deg;
-  --trace-duration: 40.7s;
-  --trace-delay: -9.2s;
-  --trace-opacity: 0.76;
-  --trace-tail: rgba(245, 158, 11, 0.02);
-  --trace-soft: rgba(245, 158, 11, 0.16);
-  --trace-color: rgba(245, 158, 11, 0.76);
-  --trace-head: #fbbf24;
-  animation-name: orange-pulse;
+  --trace-duration: 94s;
+  --trace-delay: -46s;
+  --trace-opacity: 0.48;
 }
 
 .extras-grid article:nth-child(3)::after {
   --trace-start: 52deg;
-  --trace-duration: 24.9s;
-  --trace-delay: -16.6s;
-  --trace-opacity: 0.44;
+  --trace-duration: 113s;
+  --trace-delay: -81s;
+  --trace-opacity: 0.32;
 }
 
 .device-screen::after {
   --trace-start: 226deg;
-  --trace-duration: 28.7s;
-  --trace-delay: -18.3s;
-  --trace-opacity: 0.35;
+  --trace-duration: 101s;
+  --trace-delay: -62s;
+  --trace-opacity: 0.4;
 }
 
 .signal-list div:nth-child(1)::after {
   --trace-start: 15deg;
-  --trace-duration: 22.8s;
-  --trace-delay: -6.8s;
-  --trace-opacity: 0.45;
+  --trace-duration: 97s;
+  --trace-delay: -31s;
+  --trace-opacity: 0.44;
 }
 
 .signal-list div:nth-child(2)::after {
   --trace-start: 257deg;
-  --trace-duration: 35.2s;
-  --trace-delay: -25.1s;
-  --trace-opacity: 0.25;
+  --trace-duration: 108s;
+  --trace-delay: -69s;
+  --trace-opacity: 0.32;
 }
 
 .signal-list div:nth-child(3)::after {
   --trace-start: 131deg;
-  --trace-duration: 38.9s;
-  --trace-delay: -14.5s;
-  --trace-opacity: 0.72;
-  --trace-tail: rgba(245, 158, 11, 0.02);
-  --trace-soft: rgba(245, 158, 11, 0.15);
-  --trace-color: rgba(245, 158, 11, 0.72);
-  --trace-head: #fbbf24;
-  animation-name: orange-pulse;
+  --trace-duration: 93s;
+  --trace-delay: -90s;
+  --trace-opacity: 0.46;
 }
 
 .project-showcase:nth-of-type(2) .project-card::after {
   --trace-start: 296deg;
-  --trace-duration: 25.6s;
-  --trace-delay: -11.9s;
+  --trace-duration: 100s;
+  --trace-delay: -17s;
   --trace-opacity: 0.42;
 }
 
 .project-showcase:nth-of-type(3) .project-card::after {
   --trace-start: 84deg;
-  --trace-duration: 31.5s;
-  --trace-delay: -23.8s;
-  --trace-opacity: 0.3;
+  --trace-duration: 115s;
+  --trace-delay: -52s;
+  --trace-opacity: 0.34;
 }
 
 .project-showcase:nth-of-type(4) .project-card::after {
   --trace-start: 211deg;
-  --trace-duration: 37.6s;
-  --trace-delay: -7.2s;
-  --trace-opacity: 0.8;
-  --trace-tail: rgba(245, 158, 11, 0.02);
-  --trace-soft: rgba(245, 158, 11, 0.17);
-  --trace-color: rgba(245, 158, 11, 0.8);
-  --trace-head: #fbbf24;
-  animation-name: orange-pulse;
+  --trace-duration: 95s;
+  --trace-delay: -78s;
+  --trace-opacity: 0.48;
 }
 
 .project-showcase:nth-of-type(5) .project-card::after {
   --trace-start: 143deg;
-  --trace-duration: 27.2s;
-  --trace-delay: -18.6s;
-  --trace-opacity: 0.38;
+  --trace-duration: 110s;
+  --trace-delay: -97s;
+  --trace-opacity: 0.3;
 }
 
 :focus-visible {
@@ -528,16 +508,20 @@ body {
   }
 }
 
-@keyframes blue-trace {
+@keyframes mixed-card-trace {
   0%,
   7% {
     --trace-angle: var(--trace-start, 0deg);
+    --trace-tail: rgba(56, 189, 248, 0.02);
+    --trace-soft: rgba(56, 189, 248, 0.18);
+    --trace-color: rgba(56, 189, 248, 0.78);
+    --trace-head: #7dd3fc;
     opacity: 0;
   }
 
   11% {
     --trace-angle: calc(var(--trace-start, 0deg) + 8deg);
-    opacity: 0.06;
+    opacity: 0.05;
   }
 
   17% {
@@ -545,52 +529,58 @@ body {
     opacity: calc(var(--trace-opacity, 0.45) * 0.72);
   }
 
-  43% {
-    --trace-angle: calc(var(--trace-start, 0deg) + 244deg);
-    opacity: var(--trace-opacity, 0.45);
-  }
-
-  56% {
-    --trace-angle: calc(var(--trace-start, 0deg) + 348deg);
-    opacity: calc(var(--trace-opacity, 0.45) * 0.42);
-  }
-
-  61%,
-  100% {
+  31% {
     --trace-angle: calc(var(--trace-start, 0deg) + 360deg);
     opacity: 0;
   }
-}
 
-@keyframes orange-pulse {
-  0%,
-  68% {
-    --trace-angle: var(--trace-start, 0deg);
+  46% {
+    --trace-angle: calc(var(--trace-start, 0deg) + 118deg);
     opacity: 0;
   }
 
-  71% {
-    --trace-angle: calc(var(--trace-start, 0deg) + 12deg);
+  50% {
+    --trace-angle: calc(var(--trace-start, 0deg) + 128deg);
     opacity: 0.05;
   }
 
-  74% {
-    --trace-angle: calc(var(--trace-start, 0deg) + 38deg);
-    opacity: calc(var(--trace-opacity, 0.76) * 0.34);
+  56% {
+    --trace-angle: calc(var(--trace-start, 0deg) + 176deg);
+    opacity: calc(var(--trace-opacity, 0.45) * 0.62);
   }
 
-  77% {
-    --trace-angle: calc(var(--trace-start, 0deg) + 292deg);
-    opacity: var(--trace-opacity, 0.76);
-  }
-
-  80% {
-    --trace-angle: calc(var(--trace-start, 0deg) + 360deg);
+  68% {
+    --trace-angle: calc(var(--trace-start, 0deg) + 478deg);
     opacity: 0;
   }
 
+  74% {
+    --trace-angle: calc(var(--trace-start, 0deg) + 210deg);
+    --trace-tail: rgba(245, 158, 11, 0.02);
+    --trace-soft: rgba(245, 158, 11, 0.16);
+    --trace-color: rgba(245, 158, 11, 0.8);
+    --trace-head: #fbbf24;
+    opacity: 0;
+  }
+
+  77% {
+    --trace-angle: calc(var(--trace-start, 0deg) + 222deg);
+    opacity: 0.04;
+  }
+
+  79% {
+    --trace-angle: calc(var(--trace-start, 0deg) + 250deg);
+    opacity: calc(var(--trace-opacity, 0.45) * 0.34);
+  }
+
+  81% {
+    --trace-angle: calc(var(--trace-start, 0deg) + 516deg);
+    opacity: calc(var(--trace-opacity, 0.45) * 1.12);
+  }
+
+  83%,
   100% {
-    --trace-angle: calc(var(--trace-start, 0deg) + 360deg);
+    --trace-angle: calc(var(--trace-start, 0deg) + 570deg);
     opacity: 0;
   }
 }
