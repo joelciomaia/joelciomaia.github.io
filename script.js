@@ -8,7 +8,7 @@ function setupVisualOverrides() {
 
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = "./icon-lines.css?v=20260806-2";
+  stylesheet.href = "./icon-lines.css?v=20260806-3";
   stylesheet.dataset.visualOverrides = "true";
   document.head.appendChild(stylesheet);
 }
