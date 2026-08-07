@@ -9,46 +9,49 @@
 .hero-visual-shell {
   position: relative;
   isolation: isolate;
-  width: min(100%, 560px);
+  width: min(100%, 570px);
   min-height: 470px;
   display: grid;
   place-items: center;
   padding: 30px;
   overflow: hidden;
-  border: 1px solid rgba(196, 181, 253, 0.16);
-  border-radius: 28px;
-  background: linear-gradient(
-    180deg,
-    rgba(22, 28, 48, 0.88),
-    rgba(12, 16, 31, 0.96)
-  );
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  border: 1px solid transparent;
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(20, 26, 47, 0.96), rgba(8, 12, 25, 0.98) 62%, rgba(15, 17, 38, 0.98)) padding-box,
+    linear-gradient(135deg, rgba(139, 92, 246, 0.36), rgba(56, 189, 248, 0.13) 54%, rgba(245, 158, 11, 0.12)) border-box;
+  box-shadow:
+    0 28px 78px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 .hero-visual-shell::before {
   content: "";
   position: absolute;
   z-index: -2;
-  inset: -18%;
+  inset: -20%;
   background:
-    radial-gradient(circle at 70% 24%, rgba(139, 92, 246, 0.28), transparent 31%),
-    radial-gradient(circle at 28% 74%, rgba(56, 189, 248, 0.10), transparent 34%),
-    radial-gradient(circle at 62% 70%, rgba(245, 158, 11, 0.08), transparent 27%);
-  filter: blur(4px);
+    radial-gradient(circle at 76% 18%, rgba(139, 92, 246, 0.34), transparent 30%),
+    radial-gradient(circle at 25% 78%, rgba(56, 189, 248, 0.13), transparent 33%),
+    radial-gradient(circle at 45% 48%, rgba(245, 158, 11, 0.09), transparent 24%),
+    linear-gradient(145deg, rgba(139, 92, 246, 0.04), transparent 55%);
+  filter: blur(10px);
 }
 
 .hero-visual-shell::after {
   content: "";
   position: absolute;
   z-index: -1;
-  inset: 18px;
-  border-radius: 22px;
-  border: 1px solid rgba(196, 181, 253, 0.08);
+  inset: 21px;
+  border-radius: 23px;
+  border: 1px solid rgba(196, 181, 253, 0.075);
   background:
-    linear-gradient(rgba(196, 181, 253, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 181, 253, 0.025) 1px, transparent 1px),
-    rgba(7, 9, 20, 0.46);
-  background-size: 34px 34px, 34px 34px, auto;
+    linear-gradient(rgba(196, 181, 253, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 181, 253, 0.022) 1px, transparent 1px),
+    radial-gradient(circle at 72% 28%, rgba(139, 92, 246, 0.08), transparent 36%),
+    linear-gradient(160deg, rgba(10, 15, 31, 0.78), rgba(6, 9, 19, 0.94));
+  background-size: 36px 36px, 36px 36px, auto, auto;
+  box-shadow: inset 0 0 60px rgba(56, 189, 248, 0.025);
 }
 
 .hero-visual-inner {
@@ -63,16 +66,27 @@
 .hero-visual-inner::before {
   content: "";
   position: absolute;
-  width: 68%;
-  aspect-ratio: 1;
+  width: 78%;
+  height: 72%;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(139, 92, 246, 0.18) 0%,
-    rgba(139, 92, 246, 0.07) 42%,
-    transparent 72%
-  );
-  filter: blur(12px);
+  background:
+    radial-gradient(circle at 64% 42%, rgba(139, 92, 246, 0.22), transparent 46%),
+    radial-gradient(circle at 34% 58%, rgba(245, 158, 11, 0.10), transparent 34%),
+    radial-gradient(circle at 50% 70%, rgba(56, 189, 248, 0.08), transparent 42%);
+  filter: blur(18px);
+  opacity: 0.95;
+}
+
+.hero-visual-inner::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 64%;
+  height: 18%;
+  bottom: 13%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.12), transparent 70%);
+  filter: blur(18px);
 }
 
 .hero-visual-inner img {
@@ -83,7 +97,9 @@
   max-height: 360px;
   object-fit: contain;
   margin: 0 !important;
-  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.34));
+  filter:
+    drop-shadow(0 24px 48px rgba(0, 0, 0, 0.32))
+    drop-shadow(0 0 18px rgba(139, 92, 246, 0.06));
 }
 
 @media (max-width: 980px) {
@@ -106,12 +122,12 @@
   .hero-visual-shell {
     min-height: 340px;
     padding: 20px;
-    border-radius: 22px;
+    border-radius: 24px;
   }
 
   .hero-visual-shell::after {
-    inset: 12px;
-    border-radius: 17px;
+    inset: 13px;
+    border-radius: 18px;
   }
 
   .hero-visual-inner {
