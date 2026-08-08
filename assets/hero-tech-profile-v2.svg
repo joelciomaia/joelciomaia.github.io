@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" role="img" aria-labelledby="title desc">
+  <title id="title">Tecnologia, ensino e desenvolvimento</title>
+  <desc id="desc">Perfil masculino voltado para a esquerda com cérebro formado por circuitos e elementos de programação, redes e aprendizagem.</desc>
+  <defs>
+    <linearGradient id="headFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121a38"/>
+      <stop offset="0.58" stop-color="#0b1025"/>
+      <stop offset="1" stop-color="#14102d"/>
+    </linearGradient>
+    <linearGradient id="brainStroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff9f1c"/>
+      <stop offset="0.38" stop-color="#f97316"/>
+      <stop offset="0.56" stop-color="#c084fc"/>
+      <stop offset="0.78" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="edgeStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity=".72"/>
+      <stop offset=".5" stop-color="#8b5cf6" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity=".18"/>
+    </linearGradient>
+    <radialGradient id="brainGlow" cx="50%" cy="48%" r="55%">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity=".28"/>
+      <stop offset=".42" stop-color="#3b82f6" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#050816" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="20"/></filter>
+    <clipPath id="brainClip">
+      <path d="M392 188C455 118 579 98 673 133C752 162 802 226 801 306C801 362 777 408 736 444C702 473 674 491 644 511C601 538 572 572 557 616L410 574C416 531 400 493 369 458C337 422 315 378 311 331C305 271 333 221 392 188Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- ambient light only, no outer frame -->
+  <ellipse cx="585" cy="352" rx="302" ry="282" fill="url(#brainGlow)" filter="url(#soft)" opacity=".72"/>
+
+  <!-- contextual network lines -->
+  <g fill="none" stroke="#7668d8" stroke-opacity=".24" stroke-width="2">
+    <path d="M145 204H260V264H325"/>
+    <path d="M126 455H268V421H329"/>
+    <path d="M710 180H850V238"/>
+    <path d="M734 508H882V449"/>
+    <path d="M514 679V726H701"/>
+  </g>
+  <g fill="#7c6ee6" opacity=".7">
+    <circle cx="145" cy="204" r="4"/><circle cx="260" cy="264" r="4"/><circle cx="126" cy="455" r="4"/>
+    <circle cx="850" cy="238" r="4"/><circle cx="882" cy="449" r="4"/><circle cx="701" cy="726" r="4"/>
+  </g>
+
+  <!-- code card -->
+  <g transform="translate(98 116)" opacity=".88">
+    <rect width="192" height="122" rx="18" fill="#0b1022" stroke="#5145a8" stroke-opacity=".6"/>
+    <circle cx="22" cy="20" r="4" fill="#f59e0b"/><circle cx="38" cy="20" r="4" fill="#8b5cf6"/><circle cx="54" cy="20" r="4" fill="#38bdf8"/>
+    <g stroke-linecap="round" stroke-width="6">
+      <path d="M23 49H78" stroke="#8b5cf6"/><path d="M23 68H119" stroke="#3b82f6"/>
+      <path d="M23 87H62" stroke="#f59e0b"/><path d="M72 87H146" stroke="#6366f1"/>
+      <path d="M23 105H103" stroke="#4757a8"/>
+    </g>
+  </g>
+
+  <!-- network card -->
+  <g transform="translate(104 392)" opacity=".8">
+    <rect width="130" height="114" rx="18" fill="#0b1022" stroke="#5145a8" stroke-opacity=".55"/>
+    <g fill="none" stroke="#6366f1" stroke-width="3">
+      <path d="M34 69L66 34L100 67L65 84Z"/><path d="M34 69L65 84L100 67"/>
+    </g>
+    <circle cx="34" cy="69" r="7" fill="#38bdf8"/><circle cx="66" cy="34" r="7" fill="#8b5cf6"/>
+    <circle cx="100" cy="67" r="7" fill="#f59e0b"/><circle cx="65" cy="84" r="7" fill="#6366f1"/>
+  </g>
+
+  <!-- book card -->
+  <g transform="translate(128 568)" opacity=".78">
+    <rect width="150" height="116" rx="18" fill="#0b1022" stroke="#5145a8" stroke-opacity=".5"/>
+    <path d="M32 36C50 30 61 33 75 44C89 33 101 30 119 36V84C101 78 88 81 75 91C62 81 49 78 32 84Z" fill="none" stroke="#8b5cf6" stroke-width="5"/>
+    <path d="M75 44V91" stroke="#6366f1" stroke-width="3"/>
+  </g>
+
+  <!-- cloud/server card -->
+  <g transform="translate(790 119)" opacity=".76">
+    <rect width="130" height="108" rx="18" fill="#0b1022" stroke="#5145a8" stroke-opacity=".5"/>
+    <path d="M37 71H94C106 71 111 61 108 51C105 41 96 37 87 39C82 25 67 20 55 27C48 31 44 38 44 46C32 47 25 55 26 64C27 69 31 71 37 71Z" fill="none" stroke="#38bdf8" stroke-width="4"/>
+  </g>
+
+  <!-- system card -->
+  <g transform="translate(795 393)" opacity=".78">
+    <rect width="155" height="126" rx="18" fill="#0b1022" stroke="#5145a8" stroke-opacity=".5"/>
+    <rect x="25" y="26" width="44" height="40" rx="6" fill="#6d4aff" fill-opacity=".35" stroke="#8b5cf6"/>
+    <path d="M85 34H130M85 50H123M85 66H115M25 88H130M25 102H100" stroke="#4f65d8" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- gear -->
+  <g transform="translate(687 628)" opacity=".75" fill="none" stroke="#8b5cf6" stroke-width="5">
+    <circle cx="52" cy="52" r="22"/><circle cx="52" cy="52" r="8"/>
+    <path d="M52 10V24M52 80V94M10 52H24M80 52H94M22 22L32 32M72 72L82 82M82 22L72 32M32 72L22 82"/>
+  </g>
+
+  <!-- male profile facing left -->
+  <path d="M746 641C698 655 645 661 594 655C558 651 530 643 502 629C468 612 446 587 437 555C427 520 436 488 412 463C394 444 369 433 348 418C329 404 314 389 306 368C301 355 301 344 308 333C315 322 326 315 335 308C342 302 344 296 339 289C331 277 320 267 314 254C305 234 308 214 320 197C344 162 383 142 423 131C480 115 544 116 600 136C663 159 713 202 744 258C772 309 780 365 769 421C760 467 739 502 716 534C692 568 687 601 701 631C715 635 731 638 746 641Z" fill="url(#headFill)" stroke="url(#edgeStroke)" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- masculine forehead/nose/lips/jaw definition on left edge -->
+  <path d="M343 205C326 222 319 241 321 259C322 275 331 286 340 298C346 306 345 315 338 321L312 340C303 347 300 356 305 367C311 382 325 391 340 400C350 406 357 414 359 425C361 437 355 448 347 458C342 465 343 474 350 480C361 490 375 494 388 495C401 496 412 491 420 484C414 498 413 513 417 529" fill="none" stroke="#3b82f6" stroke-opacity=".58" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- brain circuits clipped to head -->
+  <g clip-path="url(#brainClip)" fill="none" stroke="url(#brainStroke)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M337 213H432V157M353 239H456V177M335 267H412V228H478V157M343 294H392V266H505V154M349 324H430V287H530V148M361 354H451V317H555V146M374 384H473V345H582V148M390 413H497V373H612V155"/>
+    <path d="M444 168V238H523V203H616M470 181V257H550V221H644M500 177V274H576V245H675M527 175V294H603V267H702M553 178V315H629V290H726M580 188V338H650V316H744"/>
+    <path d="M427 441V402H520V424H616M446 465V427H548V449H641M466 490V453H567V478H655M487 516V481H586V505H669M507 542V509H604V532H680"/>
+    <path d="M526 194V567M557 176V584M589 172V568M619 184V545"/>
+  </g>
+
+  <!-- circuit nodes -->
+  <g fill="#fff">
+    <circle cx="337" cy="213" r="6" fill="#ffb020"/><circle cx="353" cy="239" r="6" fill="#ff9f1c"/>
+    <circle cx="335" cy="267" r="6" fill="#fb923c"/><circle cx="343" cy="294" r="6" fill="#f97316"/>
+    <circle cx="349" cy="324" r="6" fill="#f59e0b"/><circle cx="361" cy="354" r="6" fill="#fb7185"/>
+    <circle cx="744" cy="316" r="6" fill="#38bdf8"/><circle cx="726" cy="290" r="6" fill="#60a5fa"/>
+    <circle cx="702" cy="267" r="6" fill="#7dd3fc"/><circle cx="675" cy="245" r="6" fill="#93c5fd"/>
+    <circle cx="680" cy="532" r="6" fill="#38bdf8"/><circle cx="669" cy="505" r="6" fill="#60a5fa"/>
+  </g>
+</svg>
