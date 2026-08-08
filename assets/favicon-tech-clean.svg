@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Perfil tecnológico">
+  <defs>
+    <linearGradient id="head" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111936"/>
+      <stop offset="1" stop-color="#17102f"/>
+    </linearGradient>
+    <linearGradient id="brain" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff9f1c"/>
+      <stop offset=".42" stop-color="#f97316"/>
+      <stop offset=".58" stop-color="#c084fc"/>
+      <stop offset=".78" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="g" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="clip">
+      <path d="M145 79C202 28 316 24 382 74C435 114 450 182 430 241C418 277 393 303 365 327C344 345 331 365 326 389L195 371C197 339 182 314 154 294C130 277 112 254 104 226C92 181 106 119 145 79Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- no rectangle, no circle and no outer frame: only head + brain -->
+  <path d="M390 425C354 439 311 444 270 438C235 433 207 421 189 401C171 381 168 358 156 340C145 324 127 316 113 305C98 293 88 279 84 263C81 250 84 241 93 233L112 219C118 214 119 208 115 201C106 188 97 176 95 160C92 135 102 111 122 92C153 61 198 45 244 42C306 38 364 57 404 99C442 138 458 193 446 245C438 280 421 307 402 331C381 357 374 384 384 411C388 416 390 420 390 425Z" fill="url(#head)"/>
+
+  <!-- facial edge, kept inside the artwork rather than as an enclosing contour -->
+  <path d="M126 101C108 119 100 140 102 160C103 176 111 187 119 199C124 207 123 215 116 221L93 238C85 244 83 252 87 261C92 274 103 282 117 290C127 296 133 304 135 314C137 325 132 335 124 344C119 350 120 358 126 363C137 372 150 375 161 375" fill="none" stroke="#315fd8" stroke-width="8" stroke-linecap="round" opacity=".72"/>
+
+  <g clip-path="url(#clip)" fill="none" stroke="url(#brain)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" filter="url(#g)">
+    <path d="M112 111H191V69M119 139H212V87M113 168H179V139H236V70M119 197H166V170H256V69M126 228H195V198H279V70M137 258H211V228H301V73M151 287H231V257H325V81"/>
+    <path d="M211 79V147H274V117H329M232 82V165H294V133H351M255 83V184H313V153H373M278 90V207H334V177H395M302 103V230H353V201H415"/>
+    <path d="M190 314V286H263V303H333M207 337V308H282V329H349M225 360V333H300V352H360M245 381V356H316V374H369"/>
+    <path d="M242 85V386M268 75V397M296 74V386M323 85V366"/>
+  </g>
+
+  <g fill="#fff">
+    <circle cx="112" cy="111" r="9" fill="#ffb020"/><circle cx="119" cy="139" r="9" fill="#ff9f1c"/><circle cx="113" cy="168" r="9" fill="#fb923c"/>
+    <circle cx="126" cy="228" r="9" fill="#f59e0b"/><circle cx="415" cy="201" r="9" fill="#38bdf8"/><circle cx="395" cy="177" r="9" fill="#60a5fa"/>
+    <circle cx="373" cy="153" r="9" fill="#7dd3fc"/><circle cx="369" cy="374" r="9" fill="#38bdf8"/>
+  </g>
+</svg>
