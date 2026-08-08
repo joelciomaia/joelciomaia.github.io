@@ -2,22 +2,6 @@ const EMAILJS_PUBLIC_KEY = "WNWYjZIAts5Z6rjBo";
 const EMAILJS_SERVICE_ID = "service_ra40jsa";
 const EMAILJS_TEMPLATE_ID = "template_7ae59gy";
 
-function setupBrandVisuals() {
-  document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]').forEach((link) => {
-    link.href = "./assets/favicon-tech.png?v=20260807-1";
-    if (link.rel === "icon") link.type = "image/png";
-  });
-
-  const heroImage = document.querySelector(".hero-visual img");
-  if (heroImage) {
-    heroImage.src = "./assets/hero-tech-profile.webp?v=20260807-1";
-    heroImage.alt = "Perfil masculino voltado para a esquerda com cérebro digital, circuitos, programação, redes e tecnologia conectada";
-    heroImage.width = 560;
-    heroImage.height = 315;
-    heroImage.style.borderRadius = "0";
-  }
-}
-
 function setupVisualOverrides() {
   const existing = document.querySelector('link[data-visual-overrides="true"]');
   if (existing) return;
@@ -158,7 +142,6 @@ function setupCurrentYear() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  setupBrandVisuals();
   setupVisualOverrides();
   setupButtonPulses();
   setupCurrentYear();
