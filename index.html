@@ -33,11 +33,76 @@
         background: linear-gradient(180deg, #151a27 0%, #111622 100%);
       }
 
+      .contact-section {
+        padding-top: 118px;
+        padding-bottom: 118px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        border: 1px solid var(--line);
+        transition:
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        --trace-angle: 0deg;
+        outline: none;
+        border-color: transparent;
+        background:
+          linear-gradient(#12182b, #12182b) padding-box,
+          conic-gradient(
+            from var(--trace-angle),
+            rgba(139, 92, 246, 0.3),
+            rgba(196, 181, 253, 0.95),
+            rgba(56, 189, 248, 0.9),
+            rgba(139, 92, 246, 0.3)
+          ) border-box;
+        box-shadow:
+          0 0 0 3px rgba(139, 92, 246, 0.07),
+          0 10px 30px rgba(0, 0, 0, 0.12);
+        animation: button-orbit 1.8s linear infinite;
+      }
+
+      .contact-form .button.button-dark:hover,
+      .contact-form .button.button-dark:focus-visible {
+        --trace-angle: 0deg;
+        border: 1px solid transparent;
+        background:
+          linear-gradient(135deg, var(--accent-purple), var(--accent-blue)) padding-box,
+          conic-gradient(
+            from var(--trace-angle),
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.18),
+            #ffffff,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0.08)
+          ) border-box;
+        animation: button-orbit 760ms linear infinite;
+      }
+
       @media (max-width: 680px) {
         .proof-section {
           margin: 32px 0;
           padding-top: 78px;
           padding-bottom: 78px;
+        }
+
+        .contact-section {
+          padding-top: 86px;
+          padding-bottom: 86px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form .button.button-dark:hover,
+        .contact-form .button.button-dark:focus-visible {
+          animation: none;
         }
       }
     </style>
