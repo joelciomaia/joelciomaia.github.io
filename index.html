@@ -84,6 +84,114 @@
         animation: button-orbit 760ms linear infinite;
       }
 
+      @media (min-width: 921px) {
+        .hero-content {
+          grid-template-columns: minmax(0, 0.95fr) minmax(420px, 0.88fr);
+          gap: 88px;
+          width: min(1280px, 90vw);
+          min-height: 88vh;
+          padding-top: 96px;
+          padding-bottom: 132px;
+        }
+
+        .hero-copy {
+          max-width: 720px;
+        }
+
+        .hero-section h1 {
+          max-width: 760px;
+          font-size: clamp(3.9rem, 4.4vw, 4.8rem);
+          line-height: 1.04;
+        }
+
+        .hero-text {
+          max-width: 680px;
+          font-size: 1.14rem;
+          line-height: 1.7;
+        }
+
+        .signal-list {
+          gap: 14px;
+          margin-top: 48px;
+        }
+
+        .signal-list div {
+          min-height: 110px;
+          padding: 18px;
+        }
+
+        .focus-section,
+        .proof-section,
+        .extras-section,
+        .contact-section {
+          padding-left: 5vw;
+          padding-right: 5vw;
+        }
+
+        .focus-section .section-heading,
+        .extras-section .section-heading {
+          width: min(860px, 100%);
+          margin-bottom: 48px;
+        }
+
+        .focus-section .section-heading h2,
+        .extras-section .section-heading h2 {
+          font-size: 2.65rem;
+        }
+
+        .focus-grid {
+          width: min(1180px, 100%);
+          gap: 18px;
+        }
+
+        .focus-card {
+          min-height: 255px;
+          padding: 28px;
+        }
+
+        .proof-layout {
+          grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.05fr);
+          gap: 84px;
+          width: min(1220px, 100%);
+        }
+
+        .proof-copy h2 {
+          font-size: 2.75rem;
+        }
+
+        .device-shot {
+          min-height: 340px;
+        }
+
+        .device-screen {
+          min-height: 300px;
+          padding: 34px;
+        }
+
+        .device-screen strong {
+          font-size: 2.55rem;
+        }
+
+        .extras-grid {
+          width: min(1080px, 100%);
+          gap: 22px;
+        }
+
+        .extras-grid article {
+          min-height: 210px;
+          padding: 30px;
+        }
+
+        .contact-inner {
+          width: min(1220px, 100%);
+          gap: 76px;
+        }
+
+        .contact-copy h2 {
+          font-size: 2.75rem;
+        }
+      }
+
       @media (max-width: 680px) {
         .proof-section {
           margin: 32px 0;
