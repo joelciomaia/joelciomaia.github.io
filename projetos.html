@@ -31,15 +31,81 @@
 
     <style>
       @media (min-width: 769px) {
+        html {
+          scroll-snap-type: y mandatory;
+        }
+
+        .projects-page .projects-hero,
+        .projects-page .project-showcase,
+        .site-footer {
+          scroll-snap-stop: always;
+        }
+
+        .projects-page .projects-hero,
         .projects-page .project-showcase {
+          scroll-snap-align: center;
+        }
+
+        .site-footer {
+          scroll-snap-align: end;
+        }
+
+        .projects-page .projects-hero {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: min(1320px, 90vw);
           min-height: 100vh;
-          padding-top: 11vh;
-          padding-bottom: 11vh;
+          padding: 110px 0 90px;
+        }
+
+        .projects-page .projects-hero .back-link {
+          position: absolute;
+          top: 54px;
+          left: 0;
+          margin: 0;
+        }
+
+        .projects-page .projects-hero h1 {
+          max-width: 1080px;
+          font-size: clamp(3.6rem, 4.8vw, 5.2rem);
+          line-height: 1.02;
+        }
+
+        .projects-page .projects-hero p:not(.eyebrow) {
+          max-width: 900px;
+          margin-top: 30px;
+          font-size: 1.2rem;
+          line-height: 1.7;
+        }
+
+        .projects-page .project-showcase {
+          grid-template-columns: minmax(0, 0.9fr) minmax(430px, 1.08fr);
+          gap: 88px;
+          width: min(1280px, 90vw);
+          min-height: 100vh;
+          padding: 10vh 0;
           align-items: center;
+        }
+
+        .projects-page .project-copy p:not(.eyebrow) {
+          max-width: 620px;
+          line-height: 1.72;
+        }
+
+        .projects-page .project-card {
+          width: 100%;
         }
       }
 
       @media (max-width: 768px) {
+        .projects-page .projects-hero {
+          min-height: auto;
+          padding-top: 50px;
+          padding-bottom: 70px;
+        }
+
         .projects-page .project-showcase {
           min-height: auto;
           padding-top: 72px;
