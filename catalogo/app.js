@@ -53,9 +53,9 @@ const catalogData = {
   ]},
   naturaReal: { name:'Natura — Ciclo 16/2026', category:'Importação real', real:true, brand:'Natura', itemCount:4, ratio:'518.7213 / 708.6423', pages:[
     { catalogPage:10, image:'./assets/natura-ciclo-16/page-010.jpg', products:[
-      { id:'naturaPalette', left:19, top:19, width:67, height:35 },
-      { id:'naturaDuoNude', left:18, top:75, width:36, height:17 },
-      { id:'naturaDuoVermelho', left:54, top:75, width:34, height:17 }
+      { id:'naturaPalette', left:17.5, top:63, width:70, height:11 },
+      { id:'naturaDuoNude', left:34, top:84, width:15, height:8 },
+      { id:'naturaDuoVermelho', left:49, top:84, width:17, height:8 }
     ]},
     { catalogPage:11, image:'./assets/natura-ciclo-16/page-011.jpg', products:[
       { id:'naturaElegance', left:41, top:14, width:37, height:42 }
