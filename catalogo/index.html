@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ProtÃ³tipo navegÃ¡vel de um catÃ¡logo digital com revistas, produtos e pedido por WhatsApp."
+    />
+    <meta name="theme-color" content="#f8f3f0" />
+    <title>Vitrine â€” CatÃ¡logos digitais</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="prototype-note" role="note">
+      <span>ProtÃ³tipo</span>
+      <p>DemonstraÃ§Ã£o nÃ£o oficial. PreÃ§os sujeitos Ã  disponibilidade e confirmaÃ§Ã£o da revendedora.</p>
+      <button id="dismiss-note" aria-label="Fechar aviso">Ã—</button>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Vitrine, pÃ¡gina inicial">
+        <span class="brand-mark">V</span>
+        <span>vitrine<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="NavegaÃ§Ã£o principal">
+        <a class="active" href="#inicio">InÃ­cio</a>
+        <a href="#revistas">Revistas</a>
+        <a href="#destaques">Destaques</a>
+      </nav>
+      <button class="cart-button" id="header-cart" aria-label="Abrir sacola">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 12H5L6 8Zm3 1V6a3 3 0 0 1 6 0v3" /></svg>
+        <span class="cart-label">Pedido</span>
+        <span class="cart-count" data-cart-count>0</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <span class="eyebrow">Sua beleza, do seu jeito</span>
+          <h1>Folheie. Escolha.<br /><em>PeÃ§a pelo WhatsApp.</em></h1>
+          <p>
+            As melhores revistas em um sÃ³ lugar. Encontre seus favoritos e monte seu pedido em poucos minutos.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" data-open-catalog="avonReal">Testar revista importada</button>
+            <a class="text-link" href="#revistas">Explorar todas <span>â†˜</span></a>
+          </div>
+          <div class="hero-trust">
+            <span class="avatar-stack" aria-hidden="true"><i>AM</i><i>JR</i><i>LS</i></span>
+            <span><strong>+120 pedidos</strong><small>neste ciclo</small></span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Capa da revista Aurora, ediÃ§Ã£o 18">
+          <div class="sun-orb"></div>
+          <div class="cover-shadow cover-shadow-one"></div>
+          <div class="cover-shadow cover-shadow-two"></div>
+          <article class="hero-cover">
+            <div class="cover-topline"><span>AURORA</span><small>EDIÃ‡ÃƒO 18</small></div>
+            <p class="cover-kicker">CORES QUE<br />CONTAM HISTÃ“RIAS</p>
+            <div class="cover-product product-bottle"><span></span></div>
+            <div class="cover-product product-lipstick"><span></span></div>
+            <div class="cover-product product-compact"><span></span></div>
+            <div class="cover-scribble">nova<br /><b>coleÃ§Ã£o</b></div>
+            <div class="cover-bottom">PRIMAVERA / VERÃƒO</div>
+          </article>
+          <div class="cycle-card">
+            <span class="pulse-dot"></span>
+            <div><strong>Ciclo 18 aberto</strong><small>Pedidos atÃ© 18 de novembro</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="revistas">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Escolha sua revista</span>
+            <h2>CatÃ¡logos disponÃ­veis</h2>
+          </div>
+          <div class="catalog-filters" role="group" aria-label="Filtrar revistas">
+            <button class="filter active" data-filter="todos">Todos</button>
+            <button class="filter" data-filter="beleza">Beleza</button>
+            <button class="filter" data-filter="casa">Casa</button>
+            <button class="filter" data-filter="bem-estar">Bem-estar</button>
+          </div>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="catalog-card real-import" data-category="beleza">
+            <button class="catalog-cover real-avon-cover" data-open-catalog="avonReal" aria-label="Abrir revista Avon CosmÃ©ticos Ciclo 01 de 2026">
+              <span class="cover-badge real-badge">ImportaÃ§Ã£o real</span>
+              <span class="real-cover-caption"><b>AVON</b><small>Ciclo 01/2026</small></span>
+              <span class="open-hint">Testar seleÃ§Ã£o <b>â†—</b></span>
+            </button>
+            <div class="catalog-meta">
+              <div><span>Avon â€¢ Teste real</span><h3>CosmÃ©ticos â€” Ciclo 01</h3><p>3 pÃ¡ginas â€¢ 6 produtos identificados</p></div>
+              <button class="round-button" data-open-catalog="avonReal" aria-label="Folhear Avon Ciclo 01">â†—</button>
+            </div>
+            <div class="import-status"><i></i><span>PDF processado com sucesso</span><b>Revisado</b></div>
+          </article>
+
+          <article class="catalog-card" data-category="beleza">
+            <button class="catalog-cover aurora-cover" data-open-catalog="aurora" aria-label="Abrir Revista Aurora">
+              <span class="cover-badge">Destaque</span>
+              <span class="mini-brand">AURORA</span>
+              <span class="mini-title">cores que<br />contam<br /><em>histÃ³rias</em></span>
+              <span class="mini-bottle"></span>
+              <span class="mini-stick"></span>
+              <span class="edition">18 / 2026</span>
+              <span class="open-hint">Folhear <b>â†—</b></span>
+            </button>
+            <div class="catalog-meta">
+              <div><span>Beleza</span><h3>Aurora â€” Ciclo 18</h3><p>84 produtos â€¢ atÃ© 18/11</p></div>
+              <button class="round-button" data-open-catalog="aurora" aria-label="Folhear Aurora">â†—</button>
+            </div>
+          </article>
+
+          <article class="catalog-card" data-category="casa">
+            <button class="catalog-cover casa-cover" data-open-catalog="casa" aria-label="Abrir Revista Casa Clara">
+              <span class="mini-brand">CASA CLARA</span>
+              <span class="mini-title">a beleza<br />de receber</span>
+              <span class="plate plate-one"></span><span class="plate plate-two"></span>
+              <span class="leaf leaf-one"></span><span class="leaf leaf-two"></span>
+              <span class="edition">EDIÃ‡ÃƒO ESPECIAL</span>
+              <span class="open-hint">Folhear <b>â†—</b></span>
+            </button>
+            <div class="catalog-meta">
+              <div><span>Casa</span><h3>Casa Clara â€” Especial</h3><p>46 produtos â€¢ atÃ© 24/11</p></div>
+              <button class="round-button" data-open-catalog="casa" aria-label="Folhear Casa Clara">â†—</button>
+            </div>
+          </article>
+
+          <article class="catalog-card" data-category="bem-estar">
+            <button class="catalog-cover leve-cover" data-open-catalog="leve" aria-label="Abrir Revista Leve">
+              <span class="new-badge">Novo</span>
+              <span class="mini-brand">LEVE</span>
+              <span class="mini-title">rituais<br />para o seu<br /><em>tempo</em></span>
+              <span class="wellness-jar jar-one"></span><span class="wellness-jar jar-two"></span>
+              <span class="edition">PRIMAVERA 2026</span>
+              <span class="open-hint">Folhear <b>â†—</b></span>
+            </button>
+            <div class="catalog-meta">
+              <div><span>Bem-estar</span><h3>Leve â€” Primavera</h3><p>32 produtos â€¢ atÃ© 30/11</p></div>
+              <button class="round-button" data-open-catalog="leve" aria-label="Folhear Leve">â†—</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="how-it-works" id="destaques">
+        <div class="how-title"><span class="eyebrow">Simples assim</span><h2>Do catÃ¡logo ao pedido</h2></div>
+        <div class="steps">
+          <article><span>01</span><div class="step-icon">âŒ</div><h3>Escolha a revista</h3><p>Veja as ediÃ§Ãµes disponÃ­veis e abra a que mais combina com vocÃª.</p></article>
+          <article><span>02</span><div class="step-icon">ï¼‹</div><h3>Adicione os produtos</h3><p>Toque nos itens da pÃ¡gina para ver detalhes e escolher a quantidade.</p></article>
+          <article><span>03</span><div class="step-icon">âœ“</div><h3>Envie seu pedido</h3><p>Revise a sacola e gere a mensagem pronta para enviar pelo WhatsApp.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="#inicio"><span class="brand-mark">V</span><span>vitrine<span class="brand-dot">.</span></span></a>
+      <p>Um jeito mais simples de comprar por catÃ¡logo.</p>
+      <span>ProtÃ³tipo conceitual â€¢ 2026</span>
+    </footer>
+
+    <nav class="mobile-nav" aria-label="NavegaÃ§Ã£o mÃ³vel">
+      <a class="active" href="#inicio"><svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9h-6v-6H9v6H3v-9Z" /></svg><span>InÃ­cio</span></a>
+      <a href="#revistas"><svg viewBox="0 0 24 24"><path d="M4 4h7a3 3 0 0 1 3 3v13a3 3 0 0 0-3-3H4V4Zm16 0h-3a3 3 0 0 0-3 3v13a3 3 0 0 1 3-3h3V4Z" /></svg><span>Revistas</span></a>
+      <button id="mobile-cart"><svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8Zm3 1V6a3 3 0 0 1 6 0v3" /></svg><span>Pedido</span><i data-cart-count>0</i></button>
+    </nav>
+
+    <section class="viewer" id="catalog-viewer" aria-hidden="true" aria-label="Leitor de revista">
+      <div class="viewer-header">
+        <button class="viewer-back" id="close-viewer" aria-label="Voltar para catÃ¡logos">â† <span>Voltar</span></button>
+        <div class="viewer-title"><span id="viewer-category">Beleza</span><strong id="viewer-name">Aurora â€” Ciclo 18</strong></div>
+        <button class="viewer-cart" id="viewer-cart">Pedido <span data-cart-count>0</span></button>
+      </div>
+      <div class="viewer-body">
+        <button class="page-arrow prev" id="prev-page" aria-label="PÃ¡gina anterior">â†</button>
+        <div class="magazine-shell">
+          <div class="magazine-page" id="magazine-page"></div>
+          <div class="swipe-hint">Toque em um produto para adicionar ao pedido</div>
+        </div>
+        <button class="page-arrow next" id="next-page" aria-label="PrÃ³xima pÃ¡gina">â†’</button>
+      </div>
+      <div class="viewer-footer">
+        <span id="page-indicator">PÃ¡gina 1 de 3</span>
+        <div class="page-progress"><i id="page-progress"></i></div>
+        <span class="zoom-note">âœ¦ itens clicÃ¡veis</span>
+      </div>
+    </section>
+
+    <div class="backdrop" id="backdrop" hidden></div>
+
+    <aside class="product-sheet" id="product-sheet" aria-hidden="true" aria-label="Detalhes do produto">
+      <button class="sheet-close" id="close-product" aria-label="Fechar detalhes">Ã—</button>
+      <div class="product-art" id="sheet-art"></div>
+      <div class="sheet-content">
+        <span class="sheet-tag" id="sheet-tag">Maquiagem</span>
+        <h2 id="sheet-name">Batom Velvet</h2>
+        <p class="sheet-description" id="sheet-description">Cor intensa, toque macio e acabamento confortÃ¡vel.</p>
+        <div class="sheet-code">CÃ³digo <span id="sheet-code">10284</span></div>
+        <div class="sheet-purchase">
+          <div class="sheet-price"><small>por</small><strong id="sheet-price">R$ 29,90</strong></div>
+          <div class="quantity" aria-label="Quantidade"><button id="qty-minus">âˆ’</button><span id="qty-value">1</span><button id="qty-plus">+</button></div>
+        </div>
+        <button class="add-button" id="add-to-cart">Adicionar ao pedido <span>â†’</span></button>
+      </div>
+    </aside>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true" aria-label="Seu pedido">
+      <div class="cart-header"><div><span class="eyebrow">Quase lÃ¡</span><h2>Seu pedido</h2></div><button id="close-cart" aria-label="Fechar pedido">Ã—</button></div>
+      <div class="cart-list" id="cart-list"></div>
+      <div class="empty-cart" id="empty-cart">
+        <span>â—‡</span><h3>Sua sacola estÃ¡ vazia</h3><p>Abra uma revista e toque nos produtos que deseja pedir.</p><button id="empty-browse">Explorar revistas</button>
+      </div>
+      <div class="cart-summary" id="cart-summary" hidden>
+        <div><span>Subtotal</span><strong id="cart-subtotal">R$ 0,00</strong></div>
+        <p>O valor serÃ¡ confirmado pelo responsÃ¡vel antes do fechamento.</p>
+        <label class="customer-field" for="customer-name"><span>Seu nome</span><input id="customer-name" type="text" maxlength="60" autocomplete="name" placeholder="Como podemos chamar vocÃª?" /></label>
+        <button class="whatsapp-button" id="checkout-button"><span class="whatsapp-icon">âŒ</span>Preparar pedido no WhatsApp <b>â†’</b></button>
+        <small class="whatsapp-note">VocÃª escolherÃ¡ a revendedora antes de enviar.</small>
+      </div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Produto adicionado ao pedido</div>
+
+    <dialog class="message-dialog" id="message-dialog">
+      <button class="dialog-close" id="close-dialog" aria-label="Fechar">Ã—</button>
+      <span class="dialog-icon">âœ“</span>
+      <span class="eyebrow">Pedido pelo WhatsApp</span>
+      <h2>Mensagem pronta!</h2>
+      <p>Confira o resumo. Ao continuar, o WhatsApp serÃ¡ aberto para vocÃª escolher a revendedora e confirmar o envio.</p>
+      <pre id="message-preview"></pre>
+      <button class="primary-button" id="finish-demo">Abrir WhatsApp</button>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
