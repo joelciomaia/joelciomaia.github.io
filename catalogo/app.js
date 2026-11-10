@@ -29,6 +29,13 @@ const products = {
   ritual: { id:'ritual', name:'Manteiga Ritual Leve', code:'69451', category:'Corpo', price:39.90, shape:'jar', c1:'#b7b494', c2:'#ede8d5', cap:'#68705b', description:'Nutrição intensa, fragrância delicada e uma pausa gostosa no seu dia.' }
 };
 
+const productPreviewIds = new Set([
+  'purMyEssence','purBlanca','purHope','purCharm','purSerenity','purGardenia',
+  'naturaPalette','naturaDuoNude','naturaDuoVermelho','naturaElegance',
+  'florattaRose','florattaBouquet','kitFlorattaRose','kitFlorattaFlowers',
+  'egeoCogu','egeoOriginal','egeoBlue','egeoDolceSpray','kitEgeoDolce','kitEgeoBlue'
+]);
+
 const catalogData = {
   avonReal: { name:'Avon Cosméticos — Ciclo 01/2026', category:'Importação real', real:true, pages:[
     { catalogPage:3, image:'./assets/avon-ciclo-01/page-003.jpg', products:[
@@ -102,6 +109,9 @@ const sheet = $('#product-sheet');
 const drawer = $('#cart-drawer');
 
 function shapeMarkup(product) {
+  if (productPreviewIds.has(product.id)) {
+    return `<img class="product-preview" src="./assets/product-previews/${product.id}.jpg" alt="${product.name}" />`;
+  }
   const dataLetter = product.shape === 'bottle' ? 'V' : '';
   return `<span class="product-shape shape-${product.shape}" data-letter="${dataLetter}" style="--c1:${product.c1};--c2:${product.c2};--cap:${product.cap}"></span>`;
 }
@@ -201,6 +211,7 @@ function closeOverlay(element) {
 function openProduct(id) {
   selectedProduct = products[id];
   selectedQty = 1;
+  $('#sheet-art').classList.toggle('has-photo', productPreviewIds.has(selectedProduct.id));
   $('#sheet-art').innerHTML = shapeMarkup(selectedProduct);
   $('#sheet-tag').textContent = selectedProduct.category;
   $('#sheet-name').textContent = selectedProduct.name;
