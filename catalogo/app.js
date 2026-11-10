@@ -1,22 +1,22 @@
 const money = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 
 const products = {
-  purMyEssence: { id:'purMyEssence', name:'Pur Blanca My Essence', code:'135893', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#e9aeb5', c2:'#f8e2e4', cap:'#b68056', description:'Deo ColÃ´nia 75 ml. Floral madeira com peÃ´nia-rosa. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
-  purBlanca: { id:'purBlanca', name:'Pur Blanca', code:'135889', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#bad8db', c2:'#edf8f7', cap:'#91979b', description:'Deo ColÃ´nia 75 ml. Floral madeira com frÃ©sia. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
-  purHope: { id:'purHope', name:'Pur Blanca Hope', code:'135892', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#c9d19b', c2:'#f1f4de', cap:'#979b99', description:'Deo ColÃ´nia 75 ml. Floral frutal com mimosa. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
-  purCharm: { id:'purCharm', name:'Pur Blanca Charm', code:'135890', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#c6c0d8', c2:'#f3f0f8', cap:'#929597', description:'Deo ColÃ´nia 75 ml. Frutal floral com pÃ©talas de muguet. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
-  purSerenity: { id:'purSerenity', name:'Pur Blanca Serenity', code:'135895', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#e7cc8a', c2:'#fbf1cf', cap:'#b67a4d', description:'Deo ColÃ´nia 75 ml. Floral fresco com margarida. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
-  purGardenia: { id:'purGardenia', name:'Pur Blanca GardÃªnia', code:'135891', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#eab5a9', c2:'#f9e6df', cap:'#96999a', description:'Deo ColÃ´nia 75 ml. Floral frutal com gardÃªnia. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
-  velvet: { id:'velvet', name:'Batom Velvet', code:'10284', category:'Maquiagem', price:29.90, shape:'lip', c1:'#b83458', c2:'#f0a0ad', cap:'#54152d', description:'Cor intensa, toque macio e acabamento confortÃ¡vel para usar o dia todo.' },
-  aura: { id:'aura', name:'Eau de Parfum Aura', code:'31742', category:'Perfumaria', price:89.90, shape:'bottle', c1:'#a5617b', c2:'#f0d2d9', cap:'#593044', description:'Uma fragrÃ¢ncia floral marcante com notas luminosas e fundo envolvente.' },
-  glow: { id:'glow', name:'Creme Facial Glow', code:'24108', category:'Cuidados', price:42.90, shape:'jar', c1:'#cfaaa1', c2:'#f7e6dc', cap:'#86605a', description:'HidrataÃ§Ã£o leve com acabamento radiante para todos os tipos de pele.' },
-  verde: { id:'verde', name:'SÃ©rum BotÃ¢nico', code:'47613', category:'Bem-estar', price:54.90, shape:'bottle', c1:'#718d7e', c2:'#cbd8cc', cap:'#385347', description:'Textura fluida e refrescante com ativos de origem botÃ¢nica.' },
-  casa: { id:'casa', name:'Aroma Casa Serena', code:'58327', category:'Casa', price:36.90, shape:'bottle', c1:'#b88e63', c2:'#ead7c4', cap:'#5d4939', description:'Perfume aconchegante para deixar cada cantinho com sensaÃ§Ã£o de casa cuidada.' },
-  ritual: { id:'ritual', name:'Manteiga Ritual Leve', code:'69451', category:'Corpo', price:39.90, shape:'jar', c1:'#b7b494', c2:'#ede8d5', cap:'#68705b', description:'NutriÃ§Ã£o intensa, fragrÃ¢ncia delicada e uma pausa gostosa no seu dia.' }
+  purMyEssence: { id:'purMyEssence', name:'Pur Blanca My Essence', code:'135893', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#e9aeb5', c2:'#f8e2e4', cap:'#b68056', description:'Deo Colônia 75 ml. Floral madeira com peônia-rosa. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
+  purBlanca: { id:'purBlanca', name:'Pur Blanca', code:'135889', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#bad8db', c2:'#edf8f7', cap:'#91979b', description:'Deo Colônia 75 ml. Floral madeira com frésia. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
+  purHope: { id:'purHope', name:'Pur Blanca Hope', code:'135892', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#c9d19b', c2:'#f1f4de', cap:'#979b99', description:'Deo Colônia 75 ml. Floral frutal com mimosa. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
+  purCharm: { id:'purCharm', name:'Pur Blanca Charm', code:'135890', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#c6c0d8', c2:'#f3f0f8', cap:'#929597', description:'Deo Colônia 75 ml. Frutal floral com pétalas de muguet. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
+  purSerenity: { id:'purSerenity', name:'Pur Blanca Serenity', code:'135895', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#e7cc8a', c2:'#fbf1cf', cap:'#b67a4d', description:'Deo Colônia 75 ml. Floral fresco com margarida. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
+  purGardenia: { id:'purGardenia', name:'Pur Blanca Gardênia', code:'135891', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#eab5a9', c2:'#f9e6df', cap:'#96999a', description:'Deo Colônia 75 ml. Floral frutal com gardênia. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
+  velvet: { id:'velvet', name:'Batom Velvet', code:'10284', category:'Maquiagem', price:29.90, shape:'lip', c1:'#b83458', c2:'#f0a0ad', cap:'#54152d', description:'Cor intensa, toque macio e acabamento confortável para usar o dia todo.' },
+  aura: { id:'aura', name:'Eau de Parfum Aura', code:'31742', category:'Perfumaria', price:89.90, shape:'bottle', c1:'#a5617b', c2:'#f0d2d9', cap:'#593044', description:'Uma fragrância floral marcante com notas luminosas e fundo envolvente.' },
+  glow: { id:'glow', name:'Creme Facial Glow', code:'24108', category:'Cuidados', price:42.90, shape:'jar', c1:'#cfaaa1', c2:'#f7e6dc', cap:'#86605a', description:'Hidratação leve com acabamento radiante para todos os tipos de pele.' },
+  verde: { id:'verde', name:'Sérum Botânico', code:'47613', category:'Bem-estar', price:54.90, shape:'bottle', c1:'#718d7e', c2:'#cbd8cc', cap:'#385347', description:'Textura fluida e refrescante com ativos de origem botânica.' },
+  casa: { id:'casa', name:'Aroma Casa Serena', code:'58327', category:'Casa', price:36.90, shape:'bottle', c1:'#b88e63', c2:'#ead7c4', cap:'#5d4939', description:'Perfume aconchegante para deixar cada cantinho com sensação de casa cuidada.' },
+  ritual: { id:'ritual', name:'Manteiga Ritual Leve', code:'69451', category:'Corpo', price:39.90, shape:'jar', c1:'#b7b494', c2:'#ede8d5', cap:'#68705b', description:'Nutrição intensa, fragrância delicada e uma pausa gostosa no seu dia.' }
 };
 
 const catalogData = {
-  avonReal: { name:'Avon CosmÃ©ticos â€” Ciclo 01/2026', category:'ImportaÃ§Ã£o real', real:true, pages:[
+  avonReal: { name:'Avon Cosméticos — Ciclo 01/2026', category:'Importação real', real:true, pages:[
     { catalogPage:3, image:'./assets/avon-ciclo-01/page-003.jpg', products:[
       { id:'purMyEssence', left:23, top:15, width:28, height:63 },
       { id:'purBlanca', left:49, top:21, width:28, height:59 }
@@ -30,20 +30,20 @@ const catalogData = {
       { id:'purGardenia', left:50, top:23, width:27, height:62 }
     ]}
   ]},
-  aurora: { name:'Aurora â€” Ciclo 18', category:'Beleza', pages:[
-    { kicker:'Nova coleÃ§Ã£o', title:'Cores que<br /><em>contam histÃ³rias</em>', copy:'Texturas confortÃ¡veis e tons criados para acompanhar todos os seus momentos.', bg:'#f7e9e6', stage:'#e4a4b0', products:['velvet','aura','glow'] },
-    { kicker:'Cuidados diÃ¡rios', title:'Seu ritual,<br /><em>seu brilho</em>', copy:'FÃ³rmulas leves para uma rotina simples, prazerosa e cheia de cuidado.', bg:'#eef1e8', stage:'#bdcbb1', products:['verde','glow','ritual'] },
-    { kicker:'Presentes especiais', title:'Carinho em<br /><em>cada detalhe</em>', copy:'CombinaÃ§Ãµes especiais para presentear alguÃ©m querido â€” ou vocÃª mesma.', bg:'#f6eee2', stage:'#e7c49d', products:['aura','ritual','velvet'] }
+  aurora: { name:'Aurora — Ciclo 18', category:'Beleza', pages:[
+    { kicker:'Nova coleção', title:'Cores que<br /><em>contam histórias</em>', copy:'Texturas confortáveis e tons criados para acompanhar todos os seus momentos.', bg:'#f7e9e6', stage:'#e4a4b0', products:['velvet','aura','glow'] },
+    { kicker:'Cuidados diários', title:'Seu ritual,<br /><em>seu brilho</em>', copy:'Fórmulas leves para uma rotina simples, prazerosa e cheia de cuidado.', bg:'#eef1e8', stage:'#bdcbb1', products:['verde','glow','ritual'] },
+    { kicker:'Presentes especiais', title:'Carinho em<br /><em>cada detalhe</em>', copy:'Combinações especiais para presentear alguém querido — ou você mesma.', bg:'#f6eee2', stage:'#e7c49d', products:['aura','ritual','velvet'] }
   ]},
-  casa: { name:'Casa Clara â€” Especial', category:'Casa', pages:[
-    { kicker:'Receber bem', title:'A beleza<br /><em>mora nos detalhes</em>', copy:'PeÃ§as e aromas para criar uma casa com afeto, personalidade e leveza.', bg:'#edf0e9', stage:'#aebda7', products:['casa','ritual','verde'] },
-    { kicker:'Mesa posta', title:'Encontros que<br /><em>viram memÃ³ria</em>', copy:'Cores naturais e formas delicadas para transformar momentos simples.', bg:'#f1e8dc', stage:'#d3b997', products:['casa','glow','ritual'] },
-    { kicker:'OrganizaÃ§Ã£o', title:'Tudo em seu<br /><em>melhor lugar</em>', copy:'SoluÃ§Ãµes bonitas e prÃ¡ticas para uma rotina mais fluida e organizada.', bg:'#e8eeed', stage:'#9bb3ad', products:['verde','casa','glow'] }
+  casa: { name:'Casa Clara — Especial', category:'Casa', pages:[
+    { kicker:'Receber bem', title:'A beleza<br /><em>mora nos detalhes</em>', copy:'Peças e aromas para criar uma casa com afeto, personalidade e leveza.', bg:'#edf0e9', stage:'#aebda7', products:['casa','ritual','verde'] },
+    { kicker:'Mesa posta', title:'Encontros que<br /><em>viram memória</em>', copy:'Cores naturais e formas delicadas para transformar momentos simples.', bg:'#f1e8dc', stage:'#d3b997', products:['casa','glow','ritual'] },
+    { kicker:'Organização', title:'Tudo em seu<br /><em>melhor lugar</em>', copy:'Soluções bonitas e práticas para uma rotina mais fluida e organizada.', bg:'#e8eeed', stage:'#9bb3ad', products:['verde','casa','glow'] }
   ]},
-  leve: { name:'Leve â€” Primavera', category:'Bem-estar', pages:[
-    { kicker:'Rituais de autocuidado', title:'Um tempo<br /><em>sÃ³ seu</em>', copy:'Aromas, texturas e pequenos gestos que ajudam vocÃª a desacelerar.', bg:'#eff0e5', stage:'#b8c3a1', products:['ritual','verde','glow'] },
-    { kicker:'Corpo e banho', title:'Leveza da<br /><em>cabeÃ§a aos pÃ©s</em>', copy:'Produtos que transformam a rotina em um momento especial de cuidado.', bg:'#f3ebe1', stage:'#dfbea1', products:['ritual','aura','verde'] },
-    { kicker:'Casa e sentidos', title:'Respire.<br /><em>Sinta. Relaxe.</em>', copy:'FragrÃ¢ncias para criar uma atmosfera acolhedora e renovar as energias.', bg:'#e8eeea', stage:'#a2b8a9', products:['casa','aura','ritual'] }
+  leve: { name:'Leve — Primavera', category:'Bem-estar', pages:[
+    { kicker:'Rituais de autocuidado', title:'Um tempo<br /><em>só seu</em>', copy:'Aromas, texturas e pequenos gestos que ajudam você a desacelerar.', bg:'#eff0e5', stage:'#b8c3a1', products:['ritual','verde','glow'] },
+    { kicker:'Corpo e banho', title:'Leveza da<br /><em>cabeça aos pés</em>', copy:'Produtos que transformam a rotina em um momento especial de cuidado.', bg:'#f3ebe1', stage:'#dfbea1', products:['ritual','aura','verde'] },
+    { kicker:'Casa e sentidos', title:'Respire.<br /><em>Sinta. Relaxe.</em>', copy:'Fragrâncias para criar uma atmosfera acolhedora e renovar as energias.', bg:'#e8eeea', stage:'#a2b8a9', products:['casa','aura','ritual'] }
   ]}
 };
 
@@ -73,8 +73,8 @@ function renderPage() {
   $('#viewer-name').textContent = catalog.name;
   $('#viewer-category').textContent = catalog.category;
   $('#page-indicator').textContent = catalog.real
-    ? `PÃ¡gina ${page.catalogPage} da revista â€¢ ${currentPage + 1} de ${catalog.pages.length}`
-    : `PÃ¡gina ${currentPage + 1} de ${catalog.pages.length}`;
+    ? `Página ${page.catalogPage} da revista • ${currentPage + 1} de ${catalog.pages.length}`
+    : `Página ${currentPage + 1} de ${catalog.pages.length}`;
   $('#page-progress').style.width = `${((currentPage + 1) / catalog.pages.length) * 100}%`;
   $('#prev-page').disabled = currentPage === 0;
   $('#next-page').disabled = currentPage === catalog.pages.length - 1;
@@ -82,12 +82,12 @@ function renderPage() {
   if (catalog.real) {
     pageElement.className = 'magazine-page real-page';
     pageElement.innerHTML = `
-      <img class="real-page-image" src="${page.image}" alt="PÃ¡gina ${page.catalogPage} da revista Avon CosmÃ©ticos Ciclo 01 de 2026" />
-      <span class="real-import-pill">6 itens extraÃ­dos do PDF</span>
+      <img class="real-page-image" src="${page.image}" alt="Página ${page.catalogPage} da revista Avon Cosméticos Ciclo 01 de 2026" />
+      <span class="real-import-pill">6 itens extraídos do PDF</span>
       ${page.products.map(item => {
         const product = products[item.id];
-        return `<button class="real-hotspot" data-product="${item.id}" aria-label="Selecionar ${product.name}, cÃ³digo ${product.code}" style="left:${item.left}%;top:${item.top}%;width:${item.width}%;height:${item.height}%">
-          <span class="real-hotspot-marker">+</span><span class="real-hotspot-label">${product.name} â€¢ ${money.format(product.price)}</span>
+        return `<button class="real-hotspot" data-product="${item.id}" aria-label="Selecionar ${product.name}, código ${product.code}" style="left:${item.left}%;top:${item.top}%;width:${item.width}%;height:${item.height}%">
+          <span class="real-hotspot-marker">+</span><span class="real-hotspot-label">${product.name} • ${money.format(product.price)}</span>
         </button>`;
       }).join('')}`;
     $('.swipe-hint').textContent = 'Toque nos sinais + para selecionar os produtos importados';
@@ -186,7 +186,7 @@ function updateCart() {
   $('#cart-list').innerHTML = cart.map(item => `
     <article class="cart-item">
       <div class="cart-item-art">${shapeMarkup(item)}</div>
-      <div class="cart-item-info"><span>${item.category}</span><strong>${item.name}</strong><small>CÃ³d. ${item.code} â€¢ Qtd. ${item.qty}</small></div>
+      <div class="cart-item-info"><span>${item.category}</span><strong>${item.name}</strong><small>Cód. ${item.code} • Qtd. ${item.qty}</small></div>
       <div class="cart-item-actions"><strong>${money.format(item.price * item.qty)}</strong><button data-remove="${item.id}">remover</button></div>
     </article>`).join('');
   $$('[data-remove]').forEach(button => button.addEventListener('click', () => {
@@ -207,8 +207,8 @@ function showToast(message) {
 
 function prepareMessage() {
   const customerName = $('#customer-name').value.trim();
-  const lines = [customerName ? `OlÃ¡! Meu nome Ã© ${customerName}. Gostaria de fazer este pedido:` : 'OlÃ¡! Gostaria de fazer este pedido:', ''];
-  cart.forEach(item => lines.push(`â€¢ ${item.qty}x ${item.name} â€” cÃ³d. ${item.code} â€” ${money.format(item.price * item.qty)}`));
+  const lines = [customerName ? `Olá! Meu nome é ${customerName}. Gostaria de fazer este pedido:` : 'Olá! Gostaria de fazer este pedido:', ''];
+  cart.forEach(item => lines.push(`• ${item.qty}x ${item.name} — cód. ${item.code} — ${money.format(item.price * item.qty)}`));
   lines.push('', `Total estimado: ${money.format(cart.reduce((sum, item) => sum + item.price * item.qty, 0))}`, '', 'Pode confirmar a disponibilidade para mim?');
   const message = lines.join('\n');
   $('#message-preview').textContent = message;
@@ -254,4 +254,3 @@ document.addEventListener('keydown', event => {
 });
 
 updateCart();
-
