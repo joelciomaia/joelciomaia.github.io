@@ -207,8 +207,8 @@ function showToast(message) {
 
 function prepareMessage() {
   const customerName = $('#customer-name').value.trim();
-  const lines = [customerName ? `Olá! Meu nome é ${customerName}. Gostaria de fazer este pedido:` : 'Olá! Gostaria de fazer este pedido:', ''];
-  cart.forEach(item => lines.push(`• ${item.qty}x ${item.name} — cód. ${item.code} — ${money.format(item.price * item.qty)}`));
+  const lines = [customerName ? `Ol\u00e1! Meu nome \u00e9 ${customerName}. Gostaria de fazer este pedido:` : 'Ol\u00e1! Gostaria de fazer este pedido:', ''];
+  cart.forEach(item => lines.push(`\u2022 ${item.qty}x ${item.name} \u2014 c\u00f3d. ${item.code} \u2014 ${money.format(item.price * item.qty)}`));
   lines.push('', `Total estimado: ${money.format(cart.reduce((sum, item) => sum + item.price * item.qty, 0))}`, '', 'Pode confirmar a disponibilidade para mim?');
   const message = lines.join('\n');
   $('#message-preview').textContent = message;
