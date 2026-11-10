@@ -7,6 +7,20 @@ const products = {
   purCharm: { id:'purCharm', name:'Pur Blanca Charm', code:'135890', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#c6c0d8', c2:'#f3f0f8', cap:'#929597', description:'Deo Colônia 75 ml. Frutal floral com pétalas de muguet. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
   purSerenity: { id:'purSerenity', name:'Pur Blanca Serenity', code:'135895', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#e7cc8a', c2:'#fbf1cf', cap:'#b67a4d', description:'Deo Colônia 75 ml. Floral fresco com margarida. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
   purGardenia: { id:'purGardenia', name:'Pur Blanca Gardênia', code:'135891', category:'Perfumaria Avon', price:49.99, shape:'bottle', c1:'#eab5a9', c2:'#f9e6df', cap:'#96999a', description:'Deo Colônia 75 ml. Floral frutal com gardênia. Oferta do ciclo: de R$ 74,90 por R$ 49,99.' },
+  naturaPalette: { id:'naturaPalette', name:'Presente Natura Una Elegance Palette', code:'264619', category:'Maquiagem Natura', price:174.90, shape:'jar', c1:'#8e233f', c2:'#d78891', cap:'#641126', description:'Palette multifuncional de edição limitada com sacola de presente mini e laço.' },
+  naturaDuoNude: { id:'naturaDuoNude', name:'Presente Una Elegance Batom e Lápis Duo — Nude 10C', code:'264616', category:'Maquiagem Natura', price:94.90, shape:'lip', c1:'#9f3f3c', c2:'#d98b7b', cap:'#5d1c27', description:'Batom CC hidratante FPS 25, lápis Duo para olhos e boca e sacola de presente mini.' },
+  naturaDuoVermelho: { id:'naturaDuoVermelho', name:'Presente Una Elegance Batom e Lápis Duo — Vermelho 1', code:'264614', category:'Maquiagem Natura', price:94.90, shape:'lip', c1:'#c20f3e', c2:'#ec7585', cap:'#681328', description:'Batom CC hidratante FPS 25, lápis Duo para olhos e boca e sacola de presente mini.' },
+  naturaElegance: { id:'naturaElegance', name:'Presente Natura Una Elegance Deo Parfum', code:'264644', category:'Perfumaria Natura', price:244.90, shape:'bottle', c1:'#8b1736', c2:'#d76b75', cap:'#5c1727', description:'Deo parfum feminino 75 ml com sacola de presente mini e laço.' },
+  florattaRose: { id:'florattaRose', name:'Floratta Rose Desodorante Colônia', code:'48313', category:'Perfumaria O Boticário', price:174.90, shape:'bottle', c1:'#e5a2b6', c2:'#f7d7df', cap:'#b6919a', description:'Desodorante colônia 75 ml com fragrância floral floral.' },
+  florattaBouquet: { id:'florattaBouquet', name:'Floratta Rose Bouquet Desodorante Colônia', code:'48296', category:'Perfumaria O Boticário', price:139.90, shape:'bottle', c1:'#bf718b', c2:'#e5b4c2', cap:'#a88b94', description:'Desodorante colônia 75 ml em oferta no ciclo 17.' },
+  kitFlorattaRose: { id:'kitFlorattaRose', name:'Kit Floratta Rose', code:'52639', category:'Presente O Boticário', price:122.90, shape:'tube', c1:'#dda0af', c2:'#f0cbd4', cap:'#a46d79', description:'Kit com colônia 10 ml, creme corporal 75 ml e creme para mãos 30 g.' },
+  kitFlorattaFlowers: { id:'kitFlorattaFlowers', name:'Kit Floratta Flowers', code:'33424', category:'Presente O Boticário', price:219.90, shape:'bottle', c1:'#c25f86', c2:'#e6b6cc', cap:'#92526a', description:'Kit com três desodorantes colônia Floratta de 30 ml em caixa presenteável.' },
+  egeoCogu: { id:'egeoCogu', name:'Egeo Cogu Desodorante Colônia', code:'87139', category:'Perfumaria O Boticário', price:164.90, shape:'bottle', c1:'#e9b460', c2:'#f5dca2', cap:'#b4a188', description:'Desodorante colônia 90 ml de edição limitada, com fragrância oriental frutal.' },
+  egeoOriginal: { id:'egeoOriginal', name:'Egeo Original Desodorante Colônia', code:'49812', category:'Perfumaria O Boticário', price:164.90, shape:'bottle', c1:'#d9b57c', c2:'#f3dfbb', cap:'#aaa091', description:'Desodorante colônia 90 ml com fragrância fougère amadeirada.' },
+  egeoBlue: { id:'egeoBlue', name:'Egeo Blue Desodorante Colônia', code:'82686', category:'Perfumaria O Boticário', price:164.90, shape:'bottle', c1:'#173e67', c2:'#5081a9', cap:'#9b9b99', description:'Desodorante colônia 90 ml vegano, de fragrância oriental amadeirada.' },
+  egeoDolceSpray: { id:'egeoDolceSpray', name:'Egeo Dolce Antitranspirante Aerossol', code:'48657', category:'Cuidados O Boticário', price:39.90, shape:'tube', c1:'#a40d52', c2:'#ec6599', cap:'#930d43', description:'Desodorante antitranspirante aerossol 75 g com até 48 horas de proteção.' },
+  kitEgeoDolce: { id:'kitEgeoDolce', name:'Kit Presente Egeo Dolce', code:'86432', category:'Presente O Boticário', price:159.90, shape:'jar', c1:'#c01a66', c2:'#ef6da1', cap:'#8f154f', description:'Kit com desodorante colônia 50 ml e merengue mousse hidratante corporal 85 ml.' },
+  kitEgeoBlue: { id:'kitEgeoBlue', name:'Kit Egeo Blue', code:'84047', category:'Presente O Boticário', price:143.90, shape:'tube', c1:'#214c86', c2:'#6c92bd', cap:'#16345d', description:'Kit com desodorante colônia 50 ml e shower gel cabelo e corpo 100 g.' },
   velvet: { id:'velvet', name:'Batom Velvet', code:'10284', category:'Maquiagem', price:29.90, shape:'lip', c1:'#b83458', c2:'#f0a0ad', cap:'#54152d', description:'Cor intensa, toque macio e acabamento confortável para usar o dia todo.' },
   aura: { id:'aura', name:'Eau de Parfum Aura', code:'31742', category:'Perfumaria', price:89.90, shape:'bottle', c1:'#a5617b', c2:'#f0d2d9', cap:'#593044', description:'Uma fragrância floral marcante com notas luminosas e fundo envolvente.' },
   glow: { id:'glow', name:'Creme Facial Glow', code:'24108', category:'Cuidados', price:42.90, shape:'jar', c1:'#cfaaa1', c2:'#f7e6dc', cap:'#86605a', description:'Hidratação leve com acabamento radiante para todos os tipos de pele.' },
@@ -28,6 +42,32 @@ const catalogData = {
     { catalogPage:5, image:'./assets/avon-ciclo-01/page-005.jpg', products:[
       { id:'purSerenity', left:24, top:16, width:25, height:62 },
       { id:'purGardenia', left:50, top:23, width:27, height:62 }
+    ]}
+  ]},
+  naturaReal: { name:'Natura — Ciclo 16/2026', category:'Importação real', real:true, brand:'Natura', itemCount:4, ratio:'518.7213 / 708.6423', pages:[
+    { catalogPage:10, image:'./assets/natura-ciclo-16/page-010.jpg', products:[
+      { id:'naturaPalette', left:19, top:19, width:67, height:35 },
+      { id:'naturaDuoNude', left:18, top:75, width:36, height:17 },
+      { id:'naturaDuoVermelho', left:54, top:75, width:34, height:17 }
+    ]},
+    { catalogPage:11, image:'./assets/natura-ciclo-16/page-011.jpg', products:[
+      { id:'naturaElegance', left:41, top:14, width:37, height:42 }
+    ]}
+  ]},
+  boticarioReal: { name:'O Boticário — Ciclo 17/2026', category:'Importação real', real:true, brand:'O Boticário', itemCount:10, ratio:'999 / 1382', pages:[
+    { catalogPage:45, image:'./assets/boticario-ciclo-17/page-051.jpg', products:[
+      { id:'florattaRose', left:18, top:20, width:31, height:44 },
+      { id:'florattaBouquet', left:51, top:21, width:31, height:43 },
+      { id:'kitFlorattaRose', left:12, top:68, width:31, height:26 },
+      { id:'kitFlorattaFlowers', left:51, top:68, width:34, height:26 }
+    ]},
+    { catalogPage:59, image:'./assets/boticario-ciclo-17/page-065.jpg', products:[
+      { id:'egeoCogu', left:22, top:8, width:31, height:31 },
+      { id:'egeoOriginal', left:5, top:33, width:27, height:34 },
+      { id:'egeoBlue', left:31, top:34, width:27, height:29 },
+      { id:'egeoDolceSpray', left:6, top:72, width:18, height:23 },
+      { id:'kitEgeoDolce', left:29, top:70, width:27, height:26 },
+      { id:'kitEgeoBlue', left:62, top:70, width:27, height:26 }
     ]}
   ]},
   aurora: { name:'Aurora — Ciclo 18', category:'Beleza', pages:[
@@ -81,9 +121,10 @@ function renderPage() {
 
   if (catalog.real) {
     pageElement.className = 'magazine-page real-page';
+    pageElement.style.aspectRatio = catalog.ratio || '497.7165 / 653.622';
     pageElement.innerHTML = `
-      <img class="real-page-image" src="${page.image}" alt="Página ${page.catalogPage} da revista Avon Cosméticos Ciclo 01 de 2026" />
-      <span class="real-import-pill">6 itens extraídos do PDF</span>
+      <img class="real-page-image" src="${page.image}" alt="Página ${page.catalogPage} da revista ${catalog.brand || 'Avon'}" />
+      <span class="real-import-pill">${catalog.itemCount || 6} itens identificados</span>
       ${page.products.map(item => {
         const product = products[item.id];
         return `<button class="real-hotspot" data-product="${item.id}" aria-label="Selecionar ${product.name}, código ${product.code}" style="left:${item.left}%;top:${item.top}%;width:${item.width}%;height:${item.height}%">
@@ -96,6 +137,7 @@ function renderPage() {
   }
 
   pageElement.className = 'magazine-page';
+  pageElement.style.aspectRatio = '';
   $('.swipe-hint').textContent = 'Toque em um produto para adicionar ao pedido';
   const positions = ['spread-product-one','spread-product-two','spread-product-three'];
   pageElement.innerHTML = `
